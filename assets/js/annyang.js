@@ -2,8 +2,8 @@
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
-    'show tps report': function() {
-      $('#tpsreport').animate({bottom: '-100px'});
+    'Hello': function() {
+      alert('Hello world!');
     }
   };
 
