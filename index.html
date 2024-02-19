@@ -41,7 +41,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Products</a></li>
+          <li><a class="nav-link scrollto " href="inner-page.html">Products</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Settings</span> <i class="bi bi-chevron-down"></i></a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -61,7 +61,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Elegant and creative solutions</h1>
+          <h1 class="font-size-element">Elegant and creative solutions</h1>
           <h2>We are team of Web Design making website convininet for the Dyslexic</h2>
           <div class="d-flex">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
@@ -86,24 +86,34 @@
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-laptop"></i></div>
-              <h4 class="title"><a href="">Change Font Size</a></h4>
-              <button onclick="changeFontSize()">change Text Size</button>
-              <input type="number" id="fontSize">
+              <h4 class="font-size-element" class="title"><a href="">Change Font Size</a></h4>
+              <button onclick="increaseFontSize()">Increase Text Size</button>
+              <button onclick="decreaseFontSize()">decrease Text Size</button>
+              
               <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
             </div>
           </div>
 
+          <!-- for increasing the font Size -->
           <script>
-            document.addEventListener("DOMContentLoaded", function() {
-    FontSizeArryay = ['23px', '34px', '50px','30px'];
-    var i = 0;
-    function changeFontSize() {
-        var p = document.body;
-        p.style.fontSize = FontSizeArryay[i];
-        i = (i + 1) % FontSizeArryay.length;
-    }
-});
-          </script>
+            var FontSizeElements = document.querySelectorAll('.font-size-element');
+    
+            function increaseFontSize() {
+                FontSizeElements.forEach(function (element) {
+                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+                    var newSize = currentSize + 5; // You can adjust the value as needed
+                    element.style.fontSize = newSize + 'px';
+                });
+              }
+
+                function decreaseFontSize() {
+                FontSizeElements.forEach(function (element) {
+                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+                    var newSize = currentSize - 5; // You can adjust the value as needed
+                    element.style.fontSize = newSize + 'px';
+                });
+            }
+        </script>
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
