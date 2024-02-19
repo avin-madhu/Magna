@@ -64,7 +64,7 @@
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 class="font-size-element">Elegant and creative solutions</h1>
-          <h2>We are team of Web Design making website convininet for the Dyslexic</h2>
+          <h2 onmousemove="speakText('We are team of Web Design making website convininet for the Dyslexic')">We are team of Web Design making website convininet for the Dyslexic</h2>
           <div class="d-flex">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
             <a href="https://youtu.be/nT20JV1nRZg?si=N98zvLlEozdSO43e" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -114,6 +114,33 @@
                     var newSize = currentSize - 5; // You can adjust the value as needed
                     element.style.fontSize = newSize + 'px';
                 });
+
+                
+                // Text To Speech On Hover
+
+                function speakText(text) {
+                const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
+                if (selectedVoice) {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.voice = selectedVoice;
+                    speechSynthesis.cancel(); // Stop any ongoing speech
+                    speechSynthesis.speak(utterance);
+
+                    utterance.onend = function () {
+                        // Speech has ended
+                        console.log('Speech ended');
+                    };
+                }
+              }
+
+              function getSpecificVoice() {
+                // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
+                const voiceName = 'Google UK English Female';
+                const voices = speechSynthesis.getVoices();
+                return voices.find(voice => voice.name === voiceName);
+              }
+      
+    
             }
         </script>
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
