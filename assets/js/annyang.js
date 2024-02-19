@@ -4,7 +4,10 @@ if (annyang) {
   var commands = {
     'Hello': function() {
       alert('Hello world!');
-    }
+    },
+    'About': function() {
+      window.location.href = '#about';
+    },
   };
 
   // Add our commands to annyang
