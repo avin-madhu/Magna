@@ -51,8 +51,8 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Settings</span></a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li data-bs-toggle="modal" data-bs-target="#reg-modal"><a class="nav-link scrollto" href="#login">Login</a></li>
-          <li><a class="nav-link scrollto" href="#login">SignUp</a></li>
+          <li data-bs-toggle="modal" data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login">Login</a></li>
+          <li data-bs-toggle="modal" data-bs-target="#signup-modal"><a class="nav-link scrollto" href="#signup">SignUp</a></li>
           <li><a class="nav-link scrollto" href="#login">SignOut</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -471,14 +471,14 @@
 
 
   <!-- Login Modal -->
-  <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal-title">Shopping made Easy!</h5>
+          <h5 class="modal-title" id="login-modal-title">Shopping made Easy!</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="text-center" class="modal-body">
+        <div class="modal-body">
           <form  class="text-center" class="form-signin">
             <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Login</h1>
@@ -488,22 +488,23 @@
             <div class="checkbox mb-3">
               <br>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
       </div>
     </div>
   </div>
+  </div>
 
   <!-- Sign Up Modal -->
-  <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal-title">Shopping made Easy!</h5>
+          <h5 class="modal-title" id="signup-modal-title">Shopping made Easy!</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="text-center" class="modal-body">
+        <div class="modal-body">
           <form  class="text-center" class="form-signin">
             <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
@@ -513,15 +514,18 @@
             <div class="checkbox mb-3">
               <br>
               <label>
-                <input type="checkbox" value="remember-me"> Remember me
+                <input style="left: 0%;" type="checkbox" value="remember-me"> Remember me
               </label>
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            <br>
+            <p style="margin-top: 10px;">Already Have an Account? <a href="#login" data-bs-target="#login-modal" data-bs-toggle="modal">Login</a></p>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
       </div>
     </div>
+   </div>
   </div>
 
   
@@ -616,7 +620,7 @@
 
   <!-- VendorJS Files -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-  <script src="assets/js/annyang.js"></script> -->
+  <script src="assets/js/annyang.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
