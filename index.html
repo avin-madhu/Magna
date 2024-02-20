@@ -505,12 +505,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form  class="text-center" class="form-signin">
+          <form id="signup-form"  class="text-center" class="form-signin">
             <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
             <br>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> 
+            <input type="email" id="signup-email" class="form-control" placeholder="Email address" required autofocus>
+            <input type="password" id="signup-password" class="form-control" placeholder="Password" required> 
             <div class="checkbox mb-3">
               <br>
               <label>
@@ -591,36 +591,10 @@
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
 
-   <!-- Firebase Authentication Configuration -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-    const firebaseConfig = {
-      apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
-      authDomain: "miniproject-740e2.firebaseapp.com",
-      projectId: "miniproject-740e2",
-      storageBucket: "miniproject-740e2.appspot.com",
-      messagingSenderId: "493659960891",
-      appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
-      measurementId: "G-49BHFJDWQD"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-
-    // make auth and firestore references
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-    const functions = firebase.functions();
-
-    // update firestore settings
-    db.settings({ timestampsInSnapshots: true });
-  </script>
-
   <!-- VendorJS Files -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
   <script src="assets/js/annyang.js"></script>
+  <script type="module" src="assets/js/auth.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
