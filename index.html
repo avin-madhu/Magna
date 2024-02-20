@@ -51,16 +51,15 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Settings</span></a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="#login">Login</a></li>
-          <li><a class="nav-link scrollto" href="#login">SignOut</a></li>
+          <li data-bs-toggle="modal" data-bs-target="#reg-modal"><a class="nav-link scrollto" href="#login">Login</a></li>
           <li><a class="nav-link scrollto" href="#login">SignUp</a></li>
+          <li><a class="nav-link scrollto" href="#login">SignOut</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-
 
 
   <!-- ======= Hero Section ======= -->
@@ -72,7 +71,7 @@
           <h1 class="font-size-element">Elegant and creative solutions</h1>
           <h2 onclick="speakText('We are team of Web Designers making website convenient for the Dyslexic')">We are team of Web Designers making website conveninient for the Dyslexic</h2>
           <div class="d-flex">
-            <a href="#about" class="btn-get-started scrollto">Start Shopping</a>
+            <a href="inner-page.html" class="btn-get-started scrollto">Start Shopping</a>
             <a href="https://youtu.be/nT20JV1nRZg?si=N98zvLlEozdSO43e" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
@@ -104,7 +103,7 @@
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title"><a aria-disabled=true href="#">Dolor Sitema</a></h4>
+              <h4 class="title"><a href="#">Dolor Sitema</a></h4>
               <button onclick="changeFontStyle()">Change Font Style</button>
               <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
@@ -120,6 +119,8 @@
 
       </div>
     </section><!-- End Featured Services Section -->
+     
+    <!-- -->
 
     <!-- ======= About Section ======= -->
 
@@ -465,16 +466,74 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
+
+
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Shopping made Easy!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="text-center" class="modal-body">
+          <form  class="text-center" class="form-signin">
+            <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+            <br>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <div class="checkbox mb-3">
+              <br>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
+          </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Shopping made Easy!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="text-center" class="modal-body">
+          <form  class="text-center" class="form-signin">
+            <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+            <br>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> 
+            <div class="checkbox mb-3">
+              <br>
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+              <br>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
+          </form>
+      </div>
+    </div>
+  </div>
+
   
   <script>
 
     // Night and day Mode
     
     fontArray = [ 'Arial, sans-serif', 'Courier New, monospace', '"Lexend", sans-serif']
-            var FontStyleElement = document.querySelectorAll('body');
-            var i = 0;
-            function changeFontStyle() {
-                FontStyleElement.forEach(function (element) {
+                    var FontStyleElement = document.querySelectorAll('body');
+                    var i = 0;
+                    function changeFontStyle() {
+                    FontStyleElement.forEach(function (element) {
                     var currentfont = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-family'));
                     var newFont = fontArray[i]; 
                     i = (i+1)%fontArray.length;
@@ -483,24 +542,21 @@
               }
 
 
-            var FontSizeElements = document.querySelectorAll('.font-size-element');
-            function increaseFontSize() {
+                var FontSizeElements = document.querySelectorAll('.font-size-element');
+                function increaseFontSize() {
                 FontSizeElements.forEach(function (element) {
                     var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
                     var newSize = currentSize + 5; // You can adjust the value as needed
                     element.style.fontSize = newSize + 'px';
                 });
               }
-
                 function decreaseFontSize() {
                 FontSizeElements.forEach(function (element) {
                     var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
                     var newSize = currentSize - 5; // You can adjust the value as needed
                     element.style.fontSize = newSize + 'px';
                 });
-
               }
-
                 
                 // Text To Speech On Hover
                 function speakText(text) {
@@ -531,7 +587,6 @@
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
 
-
    <!-- Firebase Authentication Configuration -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
@@ -549,7 +604,6 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-
 
     // make auth and firestore references
     const auth = firebase.auth();
@@ -575,5 +629,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
