@@ -22,8 +22,8 @@ signupForm.addEventListener('submit', (e) => {
 
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     console.log("user Created", cred.user);
-    const modal = document.querySelector('#signup-modal');
-    modal.hide()
+    // const modal = document.querySelector('#signup-modal');
+    // modal.hide()
     signupForm.reset();
   });
   });
@@ -49,12 +49,10 @@ signupForm.addEventListener('submit', (e) => {
 
         auth.signInWithEmailAndPassword(email, password).then((cred) => {
         console.log("user Logged In", cred.user);
-        const modal = document.querySelector('#login-modal');
-        modal.hide();
         loginForm.reset();
         });
     });
 
 
 
-// Firebase Config
+
