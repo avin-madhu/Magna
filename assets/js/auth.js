@@ -20,7 +20,7 @@ signupForm.addEventListener('submit', (e) => {
   const email = signupForm['signup-email'].value;
   const password = signupForm['signup-password'].value;
 
-  authauth.createUserWithEmailAndPassword(email, password).then(cred => {
+  auth.createUserWithEmailAndPassword(email, password).then(cred => {
     console.log("user Created", cred.user);
     const modal = document.querySelector('#signup-modal');
     modal.close()
