@@ -56,7 +56,6 @@ signupForm.addEventListener('submit', (e) => {
         const password = loginForm['login-password'].value;
 
         auth.signInWithEmailAndPassword(email, password).then((cred) => {
-        alert("user Logged In", cred.user);
         loginForm.reset();
         });
     });
