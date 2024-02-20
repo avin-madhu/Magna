@@ -20,7 +20,11 @@ signupForm.addEventListener('submit', (e) => {
   const email = signupForm['signup-email'].value;
   const password = signupForm['signup-password'].value;
 
-  console.log(email, password);
+  auth.createUserWithEmailAndPassword(email, password).then(cred => {
+    console.log(cred.user);
+    const modal = document.querySelector('#modal-signup');
+    M.Modal.getInstance(modal).close();
+    signupForm.reset();
 
   });
 
