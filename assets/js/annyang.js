@@ -8,6 +8,9 @@ if (annyang) {
     'About': function() {
       window.location.href = '#about';
     },
+    'go back up': function() {
+      window.location.href = '#';
+    },
   };
 
   // Add our commands to annyang

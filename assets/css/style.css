@@ -2,8 +2,14 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lexend", sans-serif;
   color: #444444;
+}
+
+:root{
+  --day-bg-color: #ffffff;
+  --night-bg-color: #1a1a1a;
+  --text-color: #5f687b;
 }
 
 a {
@@ -73,7 +79,7 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: #fff;
+  background: var(--day-bg-color);
   transition: all 0.5s;
   z-index: 997;
   padding: 20px 0;
@@ -359,7 +365,7 @@ h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: #fff;
+  background: var(--day-bg-color);
   padding-top: 82px;
 }
 
