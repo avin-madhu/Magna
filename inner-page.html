@@ -47,16 +47,15 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto active" href="#hero"></a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="inner-page.html">Products</a></li>
+          <li class="logged-in" style="display: none;"><a class="nav-link scrollto " href="inner-page.html">Products</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Settings</span></a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="#login">Login</a></li>
-          <li><a class="nav-link scrollto" href="#login">SignOut</a></li>
-          <li><a class="nav-link scrollto" href="#login">SignUp</a></li>
+          <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i style="font-size: 20px;margin-left: 25px;color: #5f687b;" class="bx bx-cart"></i></li>
+          <li id="logged-in" style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -64,7 +63,11 @@
     </div>
   </header><!-- End Header -->
 
+ 
+
   <main id="main">
+
+    
 
     <section id="portfolio" class="portfolio">
       <div class="container">
@@ -102,6 +105,8 @@
                 </div>
             </div>
         </div>
+
+     
 
         <style>
           #product-item{
@@ -203,6 +208,18 @@
 
       </div>
     </section><!-- End Portfolio Section -->
+
+    <button >Toggle right offcanvas</button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        ...
+      </div>
+    </div>
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
