@@ -12,6 +12,15 @@ const functions = firebase.functions();
 // update firestore settings
 db.settings({ timestampsInSnapshots: true });
 
+
+auth.onAuthStateChanged(user => {
+    if (user) {
+        console.log('user logged in: ', user);
+    } else {
+        console.log('user logged out');
+    }
+})
+
 // Sign Up
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
@@ -22,6 +31,7 @@ signupForm.addEventListener('submit', (e) => {
 
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     console.log("user Created", cred.user);
+    alert("User Created Successfully")
     // const modal = document.querySelector('#signup-modal');
     // modal.hide()
     signupForm.reset();
@@ -39,19 +49,19 @@ signupForm.addEventListener('submit', (e) => {
     });
 
 
- // Login Users
-    // const loginForm = document.querySelector('#login-form');
-    // loginForm.addEventListener('submit', (e) => {
-    //     e.preventDefault();
+// Login Users
+    const loginForm = document.querySelector('#login-form');
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    //     const email = loginForm['login-email'].value;
-    //     const password = loginForm['login-password'].value;
+        const email = loginForm['login-email'].value;
+        const password = loginForm['login-password'].value;
 
-    //     auth.signInWithEmailAndPassword(email, password).then((cred) => {
-    //     console.log("user Logged In", cred.user);
-    //     loginForm.reset();
-    //     });
-    // });
+        auth.signInWithEmailAndPassword(email, password).then((cred) => {
+        console.log("user Logged In", cred.user);
+        loginForm.reset();
+        });
+    });
 
 
 
