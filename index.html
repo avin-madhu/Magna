@@ -22,7 +22,7 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  -->
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -65,7 +65,7 @@
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 class="font-size-element">Elegant and creative solutions</h1>
-          <h2 onmousemove="speakText('We are team of Web Design making website convenient for the Dyslexic')">We are team of Web Design making website convininet for the Dyslexic</h2>
+          <h2 onmousemove="speakText('We are team of Web Designers making website convenient for the Dyslexic')">We are team of Web Designers making website conveninient for the Dyslexic</h2>
           <div class="d-flex">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
             <a href="https://youtu.be/nT20JV1nRZg?si=N98zvLlEozdSO43e" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -96,58 +96,11 @@
               <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
             </div>
           </div>
-
-          <!-- for increasing the font Size -->
-          <script>
-            var FontSizeElements = document.querySelectorAll('.font-size-element');
-    
-            function increaseFontSize() {
-                FontSizeElements.forEach(function (element) {
-                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
-                    var newSize = currentSize + 5; // You can adjust the value as needed
-                    element.style.fontSize = newSize + 'px';
-                });
-              }
-
-                function decreaseFontSize() {
-                FontSizeElements.forEach(function (element) {
-                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
-                    var newSize = currentSize - 5; // You can adjust the value as needed
-                    element.style.fontSize = newSize + 'px';
-                });
-
-              }
-
-                
-                // Text To Speech On Hover
-
-                function speakText(text) {
-                const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
-                if (selectedVoice) {
-                    const utterance = new SpeechSynthesisUtterance(text);
-                    utterance.voice = selectedVoice;
-                    speechSynthesis.cancel(); // Stop any ongoing speech
-                    speechSynthesis.speak(utterance);
-
-                    utterance.onend = function () {
-                        // Speech has ended
-                        console.log('Speech ended');
-                    };
-                }
-              }
-
-              function getSpecificVoice() {
-                // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
-                const voiceName = 'Google UK English Female';
-                const voices = speechSynthesis.getVoices();
-                return voices.find(voice => voice.name === voiceName);
-              }
-    
-        </script>
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
               <h4 class="title"><a href="">Dolor Sitema</a></h4>
+              <button onclick="changeFontStyle()">Change Font Style</button>
               <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
           </div>
@@ -688,9 +641,7 @@
 
         <div class="social-links">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-          </svg></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
           <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
@@ -711,6 +662,63 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
+  <script>
+    fontArray = [ 'Arial, sans-serif', 'Courier New, monospace']
+            var FontStyleElement = document.querySelectorAll('body');
+            var i = 0;
+            function changeFontStyle() {
+                FontStyleElement.forEach(function (element) {
+                    var currentfont = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-family'));
+                    var newFont = fontArray[i]; 
+                    i+= i%fontArray.length;
+                    element.style.fontFamily = newFont;
+                });
+              }
+
+
+            var FontSizeElements = document.querySelectorAll('.font-size-element');
+            function increaseFontSize() {
+                FontSizeElements.forEach(function (element) {
+                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+                    var newSize = currentSize + 5; // You can adjust the value as needed
+                    element.style.fontSize = newSize + 'px';
+                });
+              }
+
+                function decreaseFontSize() {
+                FontSizeElements.forEach(function (element) {
+                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+                    var newSize = currentSize - 5; // You can adjust the value as needed
+                    element.style.fontSize = newSize + 'px';
+                });
+
+              }
+
+                
+                // Text To Speech On Hover
+                function speakText(text) {
+                const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
+                if (selectedVoice) {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.voice = selectedVoice;
+                    speechSynthesis.cancel(); // Stop any ongoing speech
+                    speechSynthesis.speak(utterance);
+
+                    utterance.onend = function () {
+                        // Speech has ended
+                        console.log('Speech ended');
+                    };
+                }
+              }
+
+              function getSpecificVoice() {
+                // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
+                const voiceName = 'Google UK English Female';
+                const voices = speechSynthesis.getVoices();
+                return voices.find(voice => voice.name === voiceName);
+              }
+  </script>
   <!-- FireBase Configuration Scripts -->
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
@@ -755,7 +763,7 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
