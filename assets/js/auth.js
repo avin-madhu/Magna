@@ -40,18 +40,18 @@ signupForm.addEventListener('submit', (e) => {
 
 
  // Login Users
-    const loginForm = document.querySelector('#login-form');
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    // const loginForm = document.querySelector('#login-form');
+    // loginForm.addEventListener('submit', (e) => {
+    //     e.preventDefault();
 
-        const email = loginForm['login-email'].value;
-        const password = loginForm['login-password'].value;
+    //     const email = loginForm['login-email'].value;
+    //     const password = loginForm['login-password'].value;
 
-        auth.signInWithEmailAndPassword(email, password).then((cred) => {
-        console.log("user Logged In", cred.user);
-        loginForm.reset();
-        });
-    });
+    //     auth.signInWithEmailAndPassword(email, password).then((cred) => {
+    //     console.log("user Logged In", cred.user);
+    //     loginForm.reset();
+    //     });
+    // });
 
 
 
