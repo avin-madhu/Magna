@@ -1,6 +1,9 @@
 // Firebase Config
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/functions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
@@ -14,7 +17,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 // make auth and firestore references
 const auth = firebase.auth();
@@ -32,9 +34,10 @@ signupForm.addEventListener('submit', (e) => {
   const email = signupForm['signup-email'].value;
   const password = signupForm['signup-password'].value;
 
-  
-  auth.createUserWithEmailAndPassword(email, password).then(cred => {
-    console.log(cred.user);
-    signupForm.reset();
+  console.log(email, password);
+
   });
-}); 
+
+
+
+// Firebase Config
