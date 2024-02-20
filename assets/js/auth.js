@@ -15,9 +15,9 @@ db.settings({ timestampsInSnapshots: true });
 
 auth.onAuthStateChanged(user => {
     if (user) {
-        console.log('user logged in: ', user);
+        alert('user logged in: ', user);
     } else {
-        console.log('user logged out');
+        alert('user logged out');
     }
 })
 
@@ -44,7 +44,7 @@ signupForm.addEventListener('submit', (e) => {
     logout.addEventListener('click', (e) => {
         e.preventDefault();
         auth.signOut().then(() => {
-        console.log('user signed out');
+        alert('user signed out');
         });
     });
 
@@ -58,7 +58,7 @@ signupForm.addEventListener('submit', (e) => {
         const password = loginForm['login-password'].value;
 
         auth.signInWithEmailAndPassword(email, password).then((cred) => {
-        console.log("user Logged In", cred.user);
+        alert("user Logged In", cred.user);
         loginForm.reset();
         });
     });
