@@ -467,7 +467,7 @@ h6 {
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 375px) {
   #hero .hero-img img {
     width: 80%;
   }
@@ -531,7 +531,7 @@ section {
   z-index: 2;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 375px) {
   .section-title h2 {
     font-size: 28px;
     margin-bottom: 15px;
@@ -777,6 +777,8 @@ section {
   opacity: 1;
   bottom: 20px;
 }
+
+
 
 /*--------------------------------------------------------------
 # Portfolio Details
