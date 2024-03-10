@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Cart Example</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>Product List</h1>
+        <ul id="product-list">
+            <li>
+                <span class="product-name">Product 1</span>
+                <span class="product-price">$10.00</span>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 1', 10.00)"> Add to Cart</button>
+            </li>
+            <!-- Add more products as needed -->
+        </ul>
+
+        <h2>Shopping Cart</h2>
+        <ul id="cart-list">
+            <!-- Cart items will be displayed here -->
+        </ul>
+    </div>
+
+    <script type="module">
+        // Replace these values with your Firebase configuration
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
+        import { getDatabase, ref, set, onValue } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js';
+
+        const firebaseConfig = {
+      apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
+      authDomain: "miniproject-740e2.firebaseapp.com",
+      projectId: "miniproject-740e2",
+      storageBucket: "miniproject-740e2.appspot.com",
+      messagingSenderId: "493659960891",
+      appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
+      measurementId: "G-49BHFJDWQD"
+    };
+  
+
+        const firebaseApp = initializeApp(firebaseConfig);
+        const database = getDatabase(firebaseApp);
+        const cartRef = ref(database, 'cart');
+
+        let cart = [];
+
+        function addToCart(productName, productPrice) {
+            const cartItem = cart.find(item => item.name === productName);
+
+            if (cartItem) {
+                cartItem.quantity++;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                });
+            }
+
+            // Save cart data to Firebase
+            set(cartRef, cart);
+
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartList = document.getElementById('cart-list');
+            cartList.innerHTML = '';
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - Quantity: ${item.quantity} - Total: $${(item.price * item.quantity).toFixed(2)}`;
+                cartList.appendChild(li);
+            });
+        }
+
+        // Listen for changes in the Firebase database and update the cart accordingly
+        onValue(cartRef, (snapshot) => {
+            cart = snapshot.val() || [];
+            displayCart();
+        });
+    </script>
+</body>
+</html>
