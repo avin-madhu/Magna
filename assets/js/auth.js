@@ -38,6 +38,18 @@ auth.onAuthStateChanged(user => {
     }
 })
 
+
+function routeToProductPage() {
+  auth.onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = "inner-html.html";
+    } else {
+        alert('Please Login');
+        setupUI();
+    }
+  })
+}
+
 // Sign Up
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
