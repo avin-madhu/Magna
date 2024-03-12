@@ -115,9 +115,14 @@
                 <li><strong>Category</strong>: design</li>
                 <li><strong>Client</strong>: ASU Company</li>
                 <li><strong>Product date</strong>: 01 March, 2020</li>
-                <li><strong>Product URL</strong>: <a href="#">www.example.com</a></li>
+                <li><strong>Status</strong>: Available</li>
               </ul>
             </div>
+            <form method="post"> <!-- Change the form action to your purchase processing page -->
+              <label for="quantity">Quantity</label>
+              <input name="quantity" placeholder="Quantity" type="number" id="quantity" value="1" min="1">
+              <button class="btn btn-primary" style="font-size: 1.2em; padding: 10px 20px; margin-top: 10px;">Purchase Now</button> <!-- Enlarge the button and change text -->
+            </form>
             <div class="portfolio-description">
               <h2>This is an example of product detail</h2>
               <p>
@@ -125,6 +130,26 @@
               </p>
             </div>
           </div>
+
+          <style>
+            /* Style for custom input */
+#quantity {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  font-size: 1em;
+  width: 100%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+#quantity:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+          </style>
+          
 
         </div>
 
@@ -137,23 +162,6 @@
   <footer id="footer">
 
     <div class="footer-top">
-
-      <div class="container">
-
-        <div class="row  justify-content-center">
-          <div class="col-lg-6">
-            <h3>Dyslexic Site</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
-          </div>
-        </div>
-
-        <div class="row footer-newsletter justify-content-center">
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
 
         <div class="social-links">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -192,90 +200,9 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/annyang.js"></script>
 
 </body>
 
 </html>
 
-
-<!-- ... (your existing code) ... -->
-
-<body>
-
-  <!-- ... (your existing code) ... -->
-
-  <main id="main">
-
-    <!-- ... (your existing code) ... -->
-
-    <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <!-- ... (your existing code) ... -->
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Product Information</h3>
-              <ul>
-                <!-- ... (your existing code) ... -->
-              </ul>
-            </div>
-            <div class="portfolio-description">
-              <h2>This is an example of product detail</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
-
-              <!-- Product Variants -->
-              <label for="product-variants">Select Variant:</label>
-              <select id="product-variants">
-                <option value="variant1">Variant 1</option>
-                <option value="variant2">Variant 2</option>
-                <!-- Add more variants as needed -->
-              </select>
-
-              <!-- Quantity Selector -->
-              <label for="quantity">Quantity:</label>
-              <input type="number" id="quantity" value="1" min="1">
-
-              <!-- Add to Cart Button -->
-              <button class="btn btn-primary" onclick="addToCart('Product Name', 20.00)">Add to Cart</button>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Customer Reviews and Ratings -->
-        <div class="row">
-          <div class="col-lg-12">
-            <h3>Customer Reviews</h3>
-            <!-- Include a section for displaying customer reviews and ratings -->
-            <!-- You may need to integrate with a backend for this feature -->
-          </div>
-        </div>
-
-        <!-- Related Products -->
-        <div class="row">
-          <div class="col-lg-12">
-            <h3>Related Products</h3>
-            <!-- Include a section for displaying related or recommended products -->
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Details Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ... (your existing code) ... -->
-
-</body>
-
-</html>

@@ -12,7 +12,13 @@ window.onload = function()
         'go back up': function() {
           window.location.href = '#';
         },
+
+        'set quantity to *num': function() {
+          
+
+        }
       };
+
 
       // Add our commands to annyang
       annyang.addCommands(commands);
