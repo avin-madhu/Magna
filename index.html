@@ -81,6 +81,19 @@
       </div>
     </div>
 
+    <script>
+      function routeToProductPage() {
+  auth.onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = "inner-html.html";
+    } else {
+        alert('Please Login');
+        setupUI();
+    }
+  })
+}
+    </script>
+
   </section><!-- End Hero -->
 
   <main id="main">
