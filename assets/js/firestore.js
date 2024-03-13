@@ -28,35 +28,35 @@ onValue(CartList, function(snapshot){ // runs everytime theres is an edit
         let currentcartItemId = currentcartItem[0]
         let currentcartItemName = currentcartItem[1]
 
-        addMovieItems(currentcartItem)
+        addcartItems(currentcartItem)
         }
     }
     else{
-        movies.innerHTML = "cart is currently Empty"
+        cart.innerHTML = "cart is currently Empty"
     }
 
 })
 
-function addMovieItems(item)
+function addcartItems(item)
 {
     let itemId = item[0]
     let itemName = item[1]
-    // movies.innerHTML +=`<li>${moviename}</li>`
+    // cart.innerHTML +=`<li>${cartitemname}</li>`
     let newEl = document.createElement("li")
 
     newEl.textContent = itemName
     movies.append(newEl)
 
     newEl.addEventListener('dblclick',function(){
-        let exactMovieName = ref(database,`Watch List/${itemId}`)
-        remove(exactMovieName)
+        let exactCartName = ref(database,`Watch List/${itemId}`)
+        remove(exactCartName)
     })
     
 }
 
-function clearMovieList()
+function clearcartList()
 {
-    movies.innerHTML=""
+    cart.innerHTML=""
 }
 
 addButton.addEventListener('click',function(){
@@ -68,7 +68,7 @@ addButton.addEventListener('click',function(){
     }
     else
     {
-        push(MovieList, inputVal)
+        push(CartList, inputVal)
         clearInputField()
         console.log( `${inputVal} added to DataBase`);
     }
