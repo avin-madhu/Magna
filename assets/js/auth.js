@@ -30,10 +30,8 @@ const setupUI = (user) => {
 
 auth.onAuthStateChanged(user => {
     if (user) {
-        alert('user logged in: ', user);
         setupUI(user);
     } else {
-        alert('user logged out');
         setupUI();
     }
 })
