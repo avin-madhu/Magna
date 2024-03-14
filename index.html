@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 class="font-size-element">Elegant and creative solutions</h1>
-          <h2 onclick="speakText('We are team of Web Designers making website convenient for the Dyslexic')">We are team of Web Designers making website conveninient for the Dyslexic</h2>
+          <h2 onclick="speakText('We are team of Web Designers making website convenient for the Dyslexic')">We are a team of Web Designers making website convenient for the Dyslexic</h2>
           <div class="d-flex">
             <a  href="inner-page.html" class="btn-get-started scrollto">Start Shopping</a>
             <a href="https://youtu.be/nT20JV1nRZg?si=N98zvLlEozdSO43e" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -106,17 +106,17 @@
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-laptop"></i></div>
-              <h4 class="font-size-element" class="title"><a href="">Change Font Size</a></h4>
+              <h4 class="title font-size-element"><a href="">Change Font Size</a></h4>
               <button onclick="increaseFontSize()">Increase Text Size</button>
               <button onclick="decreaseFontSize()">decrease Text Size</button>
               
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <p class="description font-size-element">oluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title"><a href="#">Dolor Sitema</a></h4>
+              <h4 class="title font-size-element"><a href="">Dolor Sitema</a></h4>
               <button onclick="changeFontStyle()">Change Font Style</button>
               <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
@@ -124,7 +124,7 @@
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <h4 class="title font-size-element"><a href="">Sed ut perspiciatis</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
             </div>
           </div>
@@ -563,7 +563,9 @@
                 function increaseFontSize() {
                 FontSizeElements.forEach(function (element) {
                     var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+                    console.log(currentSize)
                     var newSize = currentSize + 5; // You can adjust the value as needed
+                    
                     element.style.fontSize = newSize + 'px';
                 });
               }

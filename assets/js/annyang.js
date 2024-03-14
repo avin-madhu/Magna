@@ -3,9 +3,7 @@ window.onload = function()
     if (annyang) {
       // Let's define our first command. First the text we expect, and then the function it should call
       var commands = {
-        'Hello': function() {
-          alert('Hello world!');
-        },
+        
         'About': function() {
           window.location.href = '#about';
         },
@@ -16,7 +14,17 @@ window.onload = function()
         'set quantity to *num': function() {
           
 
+        },
+        'Increase (text) size':function(){
+          increaseFontSize();
+        },
+        'Decrease (text) size':function(){
+          decreaseFontSize();
+        },
+        'Change (font) style':function(){
+          changeFontStyle();
         }
+
       };
 
 
