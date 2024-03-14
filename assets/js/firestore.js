@@ -15,63 +15,16 @@ const addButton = document.getElementById('cartButton');
 
 
 
-onValue(CartList, function(snapshot){ // runs everytime theres is an edit
-    
-    if(snapshot.exists())
-    {
-        let cartListArray = Object.entries(snapshot.val()) // return array of arrays 
-        clearMovieList()
-
-        for(let i =0;i< cartListArray.length;i++)
-        {
-        let currentcartItem = cartListArray[i]
-        let currentcartItemId = currentcartItem[0]
-        let currentcartItemName = currentcartItem[1]
-
-        addcartItems(currentcartItem)
-        }
-    }
-    else{
-        cart.innerHTML = "cart is currently Empty"
-    }
-
-})
-
-function addcartItems(item)
+function addCartItems()
 {
-    let itemId = item[0]
-    let itemName = item[1]
-    // cart.innerHTML +=`<li>${cartitemname}</li>`
-    let newEl = document.createElement("li")
+    let uid =  window.localStorage.getItem("UserUid")
+    let cartItem = {
+        Userid: uid,
+        name: "Product 1",
+        price: 100,
+        quantity: 1
+    }
+    firebase.database().ref('carts/' + uid).push(cartItem)
 
-    newEl.textContent = itemName
-    movies.append(newEl)
-
-    newEl.addEventListener('dblclick',function(){
-        let exactCartName = ref(database,`Watch List/${itemId}`)
-        remove(exactCartName)
-    })
-    
 }
 
-function clearcartList()
-{
-    cart.innerHTML=""
-}
-
-addButton.addEventListener('click',function(){
-
-    const inputVal = inputF.value
-    if(inputVal == "")
-    {
-
-    }
-    else
-    {
-        push(CartList, inputVal)
-        clearInputField()
-        console.log( `${inputVal} added to DataBase`);
-    }
-
-
-})

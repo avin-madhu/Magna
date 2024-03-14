@@ -74,6 +74,7 @@ signupForm.addEventListener('submit', (e) => {
         const password = loginForm['login-password'].value;
 
         auth.signInWithEmailAndPassword(email, password).then((cred) => {
+        window.localStorage.setItem("UserUid", cred.user.uid);
         loginForm.reset();
         });
     });
