@@ -7,7 +7,6 @@ import "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
 // make auth and firestore references
 const auth = firebase.auth();
 const db = firebase.firestore();
-const functions = firebase.functions();
 
 // update firestore settings
 db.settings({ timestampsInSnapshots: true });
@@ -36,6 +35,7 @@ auth.onAuthStateChanged(user => {
     }
 })
 
+export {setupUI, auth}
 
 // Sign Up
 const signupForm = document.querySelector('#signup-form');
