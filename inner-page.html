@@ -375,7 +375,7 @@
   // Import Firestore modules
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-  import {setupUI, auth} from "assets//auth.js";
+  import {getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
 
   // Firebase configuration
   const firebaseConfig = {
@@ -388,9 +388,21 @@
       measurementId: "G-49BHFJDWQD",
       databaseURL: "https://miniproject-740e2-default-rtdb.asia-southeast1.firebasedatabase.app/"
     };
+
   
   // Initialize Firebase app
   const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app)
+
+  auth.onAuthStateChanged(user => {
+    if (user) {
+        console.log(user)
+    } else {
+        console.log("hehe")
+    }
+})
+
+console.log("hello")
 
   // Function to add an item to the cart
   function addCart() {
@@ -398,9 +410,8 @@
     const db = getFirestore(app);
     const cartCollectionRef = collection(db, 'cart');
 
-  if (user) {
     // The user is signed in, so we can get their UID
-    const userID = user.uid;
+    const userID = "user123";
 
     // Add data to Firestore
     setDoc(doc(cartCollectionRef, userID), {
@@ -411,9 +422,6 @@
     }).catch((error) => {
       console.error("Error adding to cart:", error);
     });
-  } else {
-    console.error("No user signed in.");
-  }
 }
   
 

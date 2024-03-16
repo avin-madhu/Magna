@@ -25,8 +25,6 @@ const setupUI = (user) => {
   }
 }
 
-
-
 auth.onAuthStateChanged(user => {
     if (user) {
         setupUI(user);
@@ -54,14 +52,12 @@ signupForm.addEventListener('submit', (e) => {
   });
   });
 
-
   // Logout or Sign Out
   const logout = document.querySelector('#logout');
     logout.addEventListener('click', (e) => {
         e.preventDefault();
         auth.signOut()
     });
-
 
 // Login Users
     const loginForm = document.querySelector('#login-form');
@@ -73,6 +69,7 @@ signupForm.addEventListener('submit', (e) => {
 
         auth.signInWithEmailAndPassword(email, password).then((cred) => {
         window.localStorage.setItem("UserUid", cred.user.uid);
+        console.log(cred.user.uid);
         loginForm.reset();
         });
     });
