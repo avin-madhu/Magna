@@ -1,72 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart</title>
-  <!-- Bootstrap CSS -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dyslexic Site</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <style>
-    /* Custom CSS */
-    .cart-item {
-      border: 1px solid #dee2e6;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      padding: 15px;
-    }
-    .cart-item img {
-      max-width: 100%;
-    }
-    .quantity-input {
-      width: 50px;
-    }
-  </style>
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
+
 <body>
-  <div class="container mt-5">
+
+  <!-- ======= Header ======= -->
+  <header id="header" >
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">Dyslexic Site</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero"></a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li class="logged-in" style="display: none;"><a class="nav-link scrollto " href="inner-page.html">Products</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Settings</span></a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li id="cartButton" aria-controls="offcanvasRight"><a href="#"><i style="font-size: 20px;margin-left: 25px;color: #5f687b;" class="bx bx-cart"></i></a></li>
+          <li id="logged-in"  style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    
+    </div>
+  </header><!-- End Header -->
+
+  <div style="margin-top: 1000px;" class="container mt-5">
     <h1 class="text-center mb-4">Shopping Cart</h1>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="cart-item">
-          <div class="row align-items-center">
-            <div class="col-md-3">
-              <img src="https://via.placeholder.com/150" alt="Item Image" class="img-fluid">
-            </div>
-            <div class="col-md-6">
-              <h5 class="mb-0">Product Name</h5>
-              <p class="mb-1">Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p class="mb-0">Price: $19.99</p>
-            </div>
-            <div class="col-md-3">
-              <div class="d-flex justify-content-end align-items-center">
-                <button class="btn btn-sm btn-danger me-2"><i class="bi bi-trash"></i></button>
-                <input type="number" class="form-control form-control-sm quantity-input" value="1" min="1">
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Additional cart items can be added here -->
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title mb-4">Cart Summary</h5>
-            <hr>
-            <p class="mb-1">Total Items: <span class="fw-bold">1</span></p>
-            <p class="mb-4">Total Price: <span class="fw-bold">$19.99</span></p>
-            <button class="btn btn-primary btn-block">Checkout</button>
-          </div>
+    <div id="cartItems">
+      <p>Cart is Currently Empty...</p>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Cart Summary</h5>
+          <hr>
+          <p class="mb-1">Total Items: <span id="totalItems" class="fw-bold">0</span></p>
+          <p class="mb-4">Total Price: <span id="totalPrice" class="fw-bold">$0.00</span></p>
+          <button class="btn btn-primary btn-block" onclick="checkout()">Checkout</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-QiF1GZwZ7vUj43E3l/nWtnKAyvpU+Ibzjso0mjVdPhDsj2k/fCQTxMMj9yE+CN6y" crossorigin="anonymous"></script>
+ 
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+  <script type="module">
+  // Import Firestore modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  import {getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
+
+  // Firebase configuration
+  const firebaseConfig = {
+      apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
+      authDomain: "miniproject-740e2.firebaseapp.com",
+      projectId: "miniproject-740e2",
+      storageBucket: "miniproject-740e2.appspot.com",
+      messagingSenderId: "493659960891",
+      appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
+      measurementId: "G-49BHFJDWQD",
+      databaseURL: "https://miniproject-740e2-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    };
+
+  
+  // Initialize Firebase app
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app)
+  const db = getFirestore(app)
+
+
+  // Function to add an item to the cart
+  function displayCart(user) {
+        
+    function fetchCartData() {
+      const cartItemsContainer = document.getElementById('cartItems');
+      const totalItemsElement = document.getElementById('totalItems');
+      const totalPriceElement = document.getElementById('totalPrice');
+
+      // Fetch cart data from Firestore
+      db.collection('cart').doc(user.uid).get().then((doc) => {
+        if (doc.exists) {
+          const cartData = doc.data();
+          // Clear previous cart items
+          cartItemsContainer.innerHTML = '';
+
+          let totalItems = 0;
+          let totalPrice = 0;
+
+          // Iterate over cart items and generate HTML
+          cartData.items.forEach((item) => {
+            const cartItemHtml = `
+              <div class="col-md-8">
+                <div class="cart-item">
+                  <div class="row align-items-center">
+                    <div class="col-md-3">
+                      // <img src="${item.image}" alt="Item Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                      <h5 class="mb-0">${item.name}</h5>
+                      // <p class="mb-1">${item.description}</p>
+                      <p class="mb-0">Price: $${item.price.toFixed(2)}</p>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="d-flex justify-content-end align-items-center">
+                        <button class="btn btn-sm btn-danger me-2" onclick="removeItemFromCart('${item.id}')"><i class="bi bi-trash"></i></button>
+                        <input type="number" class="form-control form-control-sm quantity-input" value="${item.quantity}" min="1" onchange="updateItemQuantity('${item.id}', this.value)">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            cartItemsContainer.innerHTML += cartItemHtml;
+
+            // Update total items and total price
+            totalItems += item.quantity;
+            totalPrice += item.price * item.quantity;
+          });
+
+          // Update total items and total price in UI
+          totalItemsElement.textContent = totalItems;
+          totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+        }
+      }).catch((error) => {
+        console.error('Error fetching cart data:', error);
+      });
+    }
+      }
+
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      displayCart(user);
+    } else {
+        console.log("Not Logged In")
+    }
+})
+
+
+</script>
+
 </body>
+
 </html>

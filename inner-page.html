@@ -389,37 +389,45 @@
   
   // Initialize Firebase app
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app)
+  const auth = getAuth(app);
 
+// Function to add an item to the cart
+function addCart(user) {
+    // Get a Firestore reference
+    const db = getFirestore(app);
+    const cartCollectionRef = collection(db, 'cart');
 
-  // Function to add an item to the cart
-  function addCart(user) {
-        // Get a Firestore reference
-        const db = getFirestore(app);
-        const cartCollectionRef = collection(db, 'cart');
+    // The user is signed in, so we can get their UID
+    const userID = user.uid;
+    console.log(userID);
 
-        // The user is signed in, so we can get their UID
-        const userID = user.uid;
-        console.log(userID);
+    // Generate a unique product ID (you can use a library like uuid or a combination of timestamp and random number)
+    const productID = generateUniqueProductID(); // Implement this function to generate a unique ID
 
-        // Add data to Firestore
-        setDoc(doc(cartCollectionRef, userID), {
-          name: 'Product Name',
-          price: 99.99
-        }).then(() => {
-          console.log("Added to cart successfully");
-        }).catch((error) => {
-          console.error("Error adding to cart:", error);
-        });
-      }
+    // Add data to Firestore
+    setDoc(doc(cartCollectionRef, userID, 'products', productID), {
+        name: 'Product Name',
+        price: 99.99
+    }).then(() => {
+        console.log("Added to cart successfully");
+    }).catch((error) => {
+        console.error("Error adding to cart:", error);
+    });
+}
 
-  auth.onAuthStateChanged(user => {
+// Generate a unique product ID (you can implement this according to your requirement)
+function generateUniqueProductID() {
+    return 'product_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+}
+
+auth.onAuthStateChanged(user => {
     if (user) {
-      addCart(user);
+        addCart(user);
     } else {
         console.log("Not Logged In")
     }
-})
+});
+
 
   // Get reference to the button
   const addButton = document.getElementById('cartButton');
