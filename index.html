@@ -85,7 +85,7 @@
       function routeToProductPage() {
   auth.onAuthStateChanged(user => {
     if (user) {
-        window.location.href = "inner-html.html";
+        window.location.href = "inner-page.html";
     } else {
         alert('Please Login');
         setupUI();
@@ -116,7 +116,7 @@
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title font-size-element"><a href="">Dolor Sitema</a></h4>
+              <h4 class="title font-size-element"><a href="">Change Font Style</a></h4>
               <button class="btn-font-change sizebuttons" onclick="changeFontStyle()">Change Font Style</button>
               <p class="description font-size-element">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
