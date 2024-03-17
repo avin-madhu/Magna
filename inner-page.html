@@ -387,7 +387,81 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+<<<<<<< Updated upstream
   <script type="module" src="assets/js/firestore.js"></script>
+=======
+
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+  <script type="module">
+  // Import Firestore modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  import {getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
+
+  // Firebase configuration
+  const firebaseConfig = {
+      apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
+      authDomain: "miniproject-740e2.firebaseapp.com",
+      projectId: "miniproject-740e2",
+      storageBucket: "miniproject-740e2.appspot.com",
+      messagingSenderId: "493659960891",
+      appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
+      measurementId: "G-49BHFJDWQD",
+      databaseURL: "https://miniproject-740e2-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    };
+
+  
+  // Initialize Firebase app
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+// Function to add an item to the cart
+function addCart(user) {
+    // Get a Firestore reference
+    const db = getFirestore(app);
+    const cartCollectionRef = collection(db, 'cart');
+
+    // The user is signed in, so we can get their UID
+    const userID = user.uid;
+    console.log(userID);
+
+    // Generate a unique product ID (you can use a library like uuid or a combination of timestamp and random number)
+    const productID = generateUniqueProductID(); // Implement this function to generate a unique ID
+
+    // Add data to Firestore
+    setDoc(doc(cartCollectionRef, userID, 'products', productID), {
+        name: 'Product Name',
+        price: 99.99
+    }).then(() => {
+        console.log("Added to cart successfully");
+    }).catch((error) => {
+        console.error("Error adding to cart:", error);
+    });
+}
+
+// Generate a unique product ID (you can implement this according to your requirement)
+function generateUniqueProductID() {
+    // Implement your logic to generate a unique product ID, e.g., using timestamp and random number
+    return 'product_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+}
+
+auth.onAuthStateChanged(user => {
+    if (user) {
+        addCart(user);
+    } else {
+        console.log("Not Logged In")
+    }
+});
+
+
+  // Get reference to the button
+  const addButton = document.getElementById('cartButton');
+
+  // Add event listener to the button
+  addButton.addEventListener('click', addCart);
+</script>
+>>>>>>> Stashed changes
 
 </body>
 
