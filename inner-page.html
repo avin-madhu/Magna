@@ -47,8 +47,8 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Settings</span></a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li id="cartButton" aria-controls="offcanvasRight"><a href="#"><i style="font-size: 20px;margin-left: 25px;color: #5f687b;" class="bx bx-cart"></i></a></li>
-          <li id="logged-in"  style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
+          <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><a href="cart.html"><i style="font-size: 20px;margin-left: 25px;color: #5f687b;" class="bx bx-cart"></i></a></li>
+          <li id="logged-in" id="cartButton" style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -71,123 +71,166 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Electronics</li>
-              <li data-filter=".filter-card">Clothes</li>
-              <li data-filter=".filter-web">Sports</li>
+              <li data-filter=".filter-elec">Electronics</li>
+              <li data-filter=".filter-cloth">Clothes</li>
+              <li data-filter=".filter-sport">Sports</li>
             </ul>
           </div>
         </div>
 
-        <div class="row portfolio-container">
-
-          <div id="product-item"class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="product-card">
-                <img style="margin-top: 12px;"src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="Product Image">
-                <div class="product-info">
-                    <h4 style="color: aliceblue;">Product Name</h4>
-                    <p style="color: aliceblue;font-size: 30px;"class="price">$99.99</p>
-                    <!-- Additional information like product description, ratings, etc. can be added here -->
-                    <div class="product-actions">
-                        <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="View Product"><i class="bx bx-cart-add"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <style>
-          #product-item{
-            background-color: black;
-            border-radius: 10px;
+          .product-card{
+            background-color: rgb(13, 13, 13);
+            color: aliceblue;
+            border-radius: 15px;
+            padding: 5px 15px;
           }
           .product-actions{
             display: flex;
             justify-content: space-around;
             right: 0%;
             font-size: 30px;
-            background-color: black;
+            background-color: #33030d;
             border-radius: 20px;
+            margin-bottom:15px;
+          }
+          .product-item img{
+            margin-top: 12px; 
+            margin-bottom:12px; 
+            border-radius:10px;
+          }
+
+          .product-card p{
+            font-size: 30px;
           }
         </style>
-        
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4 style="color: #282d32;">Product Name</h4>
-              <p style="color: #282d32;font-size: 30px;"class="price">$99.99</p>
-              <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-cart-add"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-info-circle"></i></a>
+        <div class="row portfolio-container">
+
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-cloth">
+            <div class="product-card">
+                <img src="assets/img/portfolio/portfolio1.jpg" class="img-fluid" alt="Product Image">
+                <div class="product-info">
+                    <h4 style="color: aliceblue;">Graphic Black T-Shirt</h4>
+                    <p style="color: aliceblue;font-size: 30px;"class="price">$49.99</p>
+                    <!-- Additional information like product description, ratings, etc. can be added here -->
+                    <div class="product-actions">
+                        <a href="assets/img/portfolio/portfolio1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="View Product"><i class="bx bx-cart-add"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-sport">
+            <div class="product-card">
+              <img src="assets/img/portfolio/portfolio2.jpg" class="img-fluid" alt="">
+              <div class="product-info">
+                <h4 style="color: aliceblue;">Leather Football</h4>
+                <p style="font-size: 30px;"class="price">$30.00</p>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/portfolio2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-cart-add"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-sport">
+            <div class="product-card">
+              <img src="assets/img/portfolio/portfolio3.jpg" class="img-fluid" alt="">
+              <div class="product-info">
+                <h4>Cricket Bat</h4>
+                <p>$19.89</p>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/portfolio3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-cart-add"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-cloth">
+            <div class="product-card">
+              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="product-info">
+                <h4>Black Sunglasses</h4>
+                <p>$14.49</p>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-cart-add"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-elec">
+            <div class="product-card">
+              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="product-info">
+                <h4>Swing Arm Desk Lamp</h4>
+                <p>$65.00</p>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-cart-add"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-elec">
+            <div class="product-card">
+              <img src="assets/img/portfolio/portfolio6.jpg" class="img-fluid" alt="">
+              <div class="product-info">
+                <h4>Wireless Headphones (Black)</h4>
+                <p>$89.99</p>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/portfolio6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-cart-add"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-elec">
+            <div class="product-card">
+              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="product-info">
+                <h4>EX Macro Lens</h4>
+                <p>$249.99</p>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-cart-add"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-sport">
+            <div class="product-card">
+              <img src="assets/img/portfolio/portfolio8.jpg" class="img-fluid" alt="">
+              <div class="product-info">
+                <h4>Cricket Helmet</h4>
+                <p>$149.99</p>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/portfolio8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-cart-add"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-cloth">
+            <div class="product-card">
+              <img src="assets/img/portfolio/portfolio9.jpg" class="img-fluid" alt="">
+              <div class="product-info">
+                <h4>Puffer Jacket (Yellow)</h4>
+                <p>$35.00</p>
+                <div class="product-actions">
+                  <a href="assets/img/portfolio/portfolio9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-cart-add"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -196,17 +239,8 @@
       </div>
     </section><!-- End Portfolio Section -->
 
-    <button >Toggle right offcanvas</button>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        ...
-      </div>
-    </div>
+    
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
@@ -293,20 +327,7 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Inner Page</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Inner Page</li>
-          </ol>
-        </div>
-
-      </div>
-    </section><!-- End Breadcrumbs -->
+   
 
 
   </main><!-- End #main -->
@@ -355,6 +376,7 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -365,76 +387,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
-  <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
-  <script type="module">
-  // Import Firestore modules
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-  import {getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
-
-  // Firebase configuration
-  const firebaseConfig = {
-      apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
-      authDomain: "miniproject-740e2.firebaseapp.com",
-      projectId: "miniproject-740e2",
-      storageBucket: "miniproject-740e2.appspot.com",
-      messagingSenderId: "493659960891",
-      appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
-      measurementId: "G-49BHFJDWQD",
-      databaseURL: "https://miniproject-740e2-default-rtdb.asia-southeast1.firebasedatabase.app/"
-    };
-
-  
-  // Initialize Firebase app
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-// Function to add an item to the cart
-function addCart(user) {
-    // Get a Firestore reference
-    const db = getFirestore(app);
-    const cartCollectionRef = collection(db, 'cart');
-
-    // The user is signed in, so we can get their UID
-    const userID = user.uid;
-    console.log(userID);
-
-    // Generate a unique product ID (you can use a library like uuid or a combination of timestamp and random number)
-    const productID = generateUniqueProductID(); // Implement this function to generate a unique ID
-
-    // Add data to Firestore
-    setDoc(doc(cartCollectionRef, userID, 'products', productID), {
-        name: 'Product Name',
-        price: 99.99
-    }).then(() => {
-        console.log("Added to cart successfully");
-    }).catch((error) => {
-        console.error("Error adding to cart:", error);
-    });
-}
-
-// Generate a unique product ID (you can implement this according to your requirement)
-function generateUniqueProductID() {
-    return 'product_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-}
-
-auth.onAuthStateChanged(user => {
-    if (user) {
-        addCart(user);
-    } else {
-        console.log("Not Logged In")
-    }
-});
-
-
-  // Get reference to the button
-  const addButton = document.getElementById('cartButton');
-
-  // Add event listener to the button
-  addButton.addEventListener('click', addCart);
-</script>
+  <script type="module" src="assets/js/firestore.js"></script>
 
 </body>
 
