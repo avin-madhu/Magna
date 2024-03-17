@@ -400,6 +400,7 @@
 
         // The user is signed in, so we can get their UID
         const userID = user.uid;
+        console.log(userID);
 
         // Add data to Firestore
         setDoc(doc(cartCollectionRef, userID), {
