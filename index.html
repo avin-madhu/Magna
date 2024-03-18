@@ -520,8 +520,10 @@
   </div>
 
   <script type="module">
-  import {GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
+  import {GoogleAuthProvider, signInWithPopup, getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
   const provider = new GoogleAuthProvider();
+  const app = initializeApp(app)
+  const auth = getAuth(app)
   const googleLogin = document.getElementById('google-auth');
   googleLogin.addEventListener('click', (e) => {
     signInWithPopup(auth, provider).then((result) => {
@@ -625,15 +627,11 @@
       appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
       measurementId: "G-49BHFJDWQD"
     };
-  
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-  
-    // Get authentication and Firestore references
-    const auth = firebase.auth();
     const db = firebase.firestore();
 
     db.settings({ timestampsInSnapshots: true });
+
+
   </script>
   
 
