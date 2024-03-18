@@ -520,7 +520,7 @@
   </div>
 
   <script type="module">
-  import {GoogleAuthProvider, signInWithPopup, getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
+  import {GoogleAuthProvider, signInWithPopup, getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
   const provider = new GoogleAuthProvider();
   const app = initializeApp(app)
   const auth = getAuth(app)
@@ -535,6 +535,28 @@
       const errorMessage = error.message;
     })
   })
+    
+//conditional Links
+const loggedOutLinks = document.querySelectorAll('#logged-out');
+const loggedInLinks = document.querySelectorAll('#logged-in');
+
+const setupUI = (user) => {
+  if (user) {
+    loggedInLinks.forEach(item => item.style.display = 'block');
+    loggedOutLinks.forEach(item => item.style.display = 'none');
+  } else {
+    loggedInLinks.forEach(item => item.style.display = 'none');
+    loggedOutLinks.forEach(item => item.style.display = 'block');
+  }
+}
+
+auth.onAuthStateChanged(user => {
+    if (user) {
+        setupUI(user);
+    } else {
+        setupUI();
+    }
+})
   </script>
 
   
