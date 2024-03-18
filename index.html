@@ -609,7 +609,10 @@
       appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
       measurementId: "G-49BHFJDWQD"
     };
-
+    
+    const app = initialize(firebaseConfig)
+    const auth = getAuth(app)
+    const db = getFirestore(app)
     db.settings({ timestampsInSnapshots: true });
   </script>
   
