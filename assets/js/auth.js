@@ -1,5 +1,5 @@
 // Firebase Config
-import "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";  // Update this line
+import {GoogleAuthProvider, signInWithPopup} from  "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";  // Update this line
 import "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";  // Add similar lines for other Firebase modules
 import "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
 
@@ -11,7 +11,6 @@ auth.language ='en'
 
 // update firestore settings
 db.settings({ timestampsInSnapshots: true });
-
 
 //conditional Links
 const loggedOutLinks = document.querySelectorAll('#logged-out');
@@ -34,7 +33,6 @@ auth.onAuthStateChanged(user => {
         setupUI();
     }
 })
-
 
 export {setupUI, auth}
 
@@ -80,15 +78,15 @@ signupForm.addEventListener('submit', (e) => {
 
   //google Authentication
   const provider = new GoogleAuthProvider();
-  const googleLogin = document.getElementById('google-auth');
+  const googleLogin = document.querySelector('#google-auth');
   googleLogin.addEventListener('click', (e) => {
+    e.preventDefault();
     signInWithPopup(auth, provider).then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const user = result.user
       console.log(user);
     }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    })
+    const errorCode = error.code;
+    const errorMessage = error.message;
   })
-
+  })
