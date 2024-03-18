@@ -479,22 +479,12 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-            <button id="google-auth" class="btn btn-lg btn-danger btn-block" type="button"><i class="bi bi-google"></i>Login with Google</button>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
         </div>
       </div>
     </div>
   </div>
-  
-  <script>
-    // Add event listener to the Google authentication button
-    document.getElementById('google-auth').addEventListener('click', function() {
-      // Redirect to Google authentication page
-      window.location.href = 'YOUR_GOOGLE_AUTH_ENDPOINT';
-    });
-  </script>
-  
 
   <!-- Sign Up Modal -->
   <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
@@ -519,6 +509,7 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            <button id="google-auth" class="btn btn-lg btn-danger btn-block" type="button"><i class="bi bi-google"></i>Login with Google</button>
             <br>
             <p style="margin-top: 10px;">Already Have an Account? <a href="#login" data-bs-target="#login-modal" data-bs-toggle="modal">Login</a></p>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
