@@ -78,7 +78,7 @@ signupForm.addEventListener('submit', (e) => {
 
   //google Authentication
   const provider = new GoogleAuthProvider();
-  const googleLogin = document.querySelector('#google-auth');
+  const googleLogin = document.getElementById('google-auth');
   googleLogin.addEventListener('click', (e) => {
     e.preventDefault();
     signInWithPopup(auth, provider).then((result) => {
