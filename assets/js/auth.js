@@ -85,8 +85,8 @@ signupForm.addEventListener('submit', (e) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const user = result.user
       console.log(user);
-    });
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    })
   })
