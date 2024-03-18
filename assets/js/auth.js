@@ -77,16 +77,4 @@ signupForm.addEventListener('submit', (e) => {
 
 
   //google Authentication
-  const provider = new GoogleAuthProvider();
-  const googleLogin = document.getElementById('google-auth');
-  googleLogin.addEventListener('click', (e) => {
-    e.preventDefault();
-    signInWithPopup(auth, provider).then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const user = result.user
-      console.log(user);
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    })
-  })
+ 
