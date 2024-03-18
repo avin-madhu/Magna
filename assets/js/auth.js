@@ -1,5 +1,5 @@
 // Firebase Config
-import {GoogleAuthProvider, signInWithPopup} from  "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";  // Update this line
+import "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";  // Update this line
 import "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";  // Add similar lines for other Firebase modules
 import "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
 
