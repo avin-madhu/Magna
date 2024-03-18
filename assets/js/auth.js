@@ -1,5 +1,5 @@
 // Firebase Config
-import "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";  // Update this line
+import {GoogleAuthProvider, signInWithPopup} from  "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";  // Update this line
 import "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";  // Add similar lines for other Firebase modules
 import "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
 
@@ -81,11 +81,10 @@ signupForm.addEventListener('submit', (e) => {
   const googleLogin = document.querySelector('#google-auth');
   googleLogin.addEventListener('click', (e) => {
     e.preventDefault();
-    auth.signInWithPopup(auth, provider).then((result) => {
+    signInWithPopup(auth, provider).then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const user = result.user
       console.log(user);
-      window.location.href = ""
     });
   }).catch((error) => {
     const errorCode = error.code;
