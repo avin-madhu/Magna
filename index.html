@@ -82,7 +82,7 @@
     </div>
 
     <script>
-      function routeToProductPage() {
+  function routeToProductPage() {
   auth.onAuthStateChanged(user => {
     if (user) {
         window.location.href = "inner-page.html";
@@ -166,11 +166,11 @@
       </div>
     </section><!-- End About Section -->
     
-     <div class="container">
+     <!-- <div class="container">
       <div class="row counters">
   
         <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="532" data-purecounter-duration="1" class="purecounter"></span>
+          <span style="" data-purecounter-start="0" data-purecounter-end="532" data-purecounter-duration="1" class="purecounter"></span>
           <p>Clients</p>
         </div>
   
@@ -184,11 +184,8 @@
           <p>Hours Of Support</p>
         </div>
       </div>
-
-      
     </div>
-
-  </div>
+  </div> -->
 </section><!-- End Counts Section -->
 
 <!-- ======= Services Section ======= -->
@@ -473,7 +470,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="login-form"  class="text-center" class="form-signin">
+          <form id="login-form" class="text-center" class="form-signin">
             <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Login</h1>
             <br>
@@ -483,12 +480,22 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <button id="google-auth" class="btn btn-lg btn-danger btn-block" type="button">Login with Google</button>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
+        </div>
       </div>
     </div>
   </div>
-  </div>
+  
+  <script>
+    // Add event listener to the Google authentication button
+    document.getElementById('google-auth').addEventListener('click', function() {
+      // Redirect to Google authentication page
+      window.location.href = 'YOUR_GOOGLE_AUTH_ENDPOINT';
+    });
+  </script>
+  
 
   <!-- Sign Up Modal -->
   <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">

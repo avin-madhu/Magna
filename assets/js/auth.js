@@ -7,6 +7,7 @@ import "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
 // make auth and firestore references
 const auth = firebase.auth();
 const db = firebase.firestore();
+auth.language ='en'
 
 // update firestore settings
 db.settings({ timestampsInSnapshots: true });
@@ -75,5 +76,18 @@ signupForm.addEventListener('submit', (e) => {
     });
 
 
-
-
+  //google Authentication
+  const provider = new GoogleAuthProvider();
+  const googleLogin = document.querySelector('#google-auth');
+  googleLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signInWithPopup(auth, provider).then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const user = result.user
+      console.log(user);
+      window.location.href = ""
+    });
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  })
