@@ -479,7 +479,7 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-            <button id="google-auth" class="btn btn-lg btn-danger btn-block" type="button"><i class="bi bi-google"></i>Login with Google</button>
+            <button class="btn btn-lg btn-danger btn-block" type="button"><i class="bi bi-google"></i>Login with Google</button>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
         </div>
@@ -510,6 +510,7 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            <button id="google-auth" class="btn btn-lg btn-danger btn-block"><i class="bi bi-google"></i>Sign in With Google</button>
             <br>
             <p style="margin-top: 10px;">Already Have an Account? <a href="#login" data-bs-target="#login-modal" data-bs-toggle="modal">Login</a></p>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
@@ -609,12 +610,29 @@
       appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
       measurementId: "G-49BHFJDWQD"
     };
-    
-    const app = initialize(firebaseConfig)
-    const auth = getAuth(app)
-    const db = getFirestore(app)
-    db.settings({ timestampsInSnapshots: true });
-  </script>
+
+     // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+
+const googleAuthBtn = document.getElementById("google-auth");
+
+function userSignIn() {
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+}
+
+googleAuthBtn.addEventListener('click', userSignIn);
+</script>
   
 
   <!-- VendorJS Files -->

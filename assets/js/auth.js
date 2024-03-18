@@ -47,8 +47,7 @@ signupForm.addEventListener('submit', (e) => {
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     console.log("user Created", cred.user);
     alert("User Created Successfully")
-    // const modal = document.querySelector('#signup-modal');
-    // modal.hide()
+    
     signupForm.reset();
   });
   });
@@ -72,5 +71,9 @@ signupForm.addEventListener('submit', (e) => {
         window.localStorage.setItem("UserUid", cred.user.uid);
         console.log(cred.user.uid);
         loginForm.reset();
+        const modal = document.querySelector('#login-modal');
+        modal.hide()
+      }).catch((error) => {
+        console.log(error);
         });
     });
