@@ -615,23 +615,7 @@
     // Get authentication and Firestore references
     const auth = firebase.auth();
     const db = firebase.firestore();
-
-
-  import {GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
-  const provider = new GoogleAuthProvider();
-  const googleLogin = document.getElementById('google-auth');
-  googleLogin.addEventListener('click', (e) => {
-    signInWithPopup(auth, provider).then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const user = result.user
-      console.log(user);
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    })
-  })
-
-
+    
     db.settings({ timestampsInSnapshots: true });
   </script>
   
