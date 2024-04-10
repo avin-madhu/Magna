@@ -116,7 +116,7 @@
                     <!-- Additional information like product description, ratings, etc. can be added here -->
                     <div class="product-actions">
                         <a href="assets/img/portfolio/portfolio1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="View Product"><i class="bx bx-cart-add"></i></a>
-                        <a class="buyButton" href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                 <p style="font-size: 30px;"class="price">$30.00</p>
                 <div class="product-actions">
                   <a href="assets/img/portfolio/portfolio2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-cart-add"></i></a>
-                  <a class="buyButton" href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
                 </div>
               </div>
             </div>
@@ -387,9 +387,82 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
- 
-<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-<script src="assets/js/annyang.js"></script>
+<<<<<<< Updated upstream
+  <script type="module" src="assets/js/firestore.js"></script>
+=======
+
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+  <script type="module">
+  // Import Firestore modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  import {getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
+
+  // Firebase configuration
+  const firebaseConfig = {
+      apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
+      authDomain: "miniproject-740e2.firebaseapp.com",
+      projectId: "miniproject-740e2",
+      storageBucket: "miniproject-740e2.appspot.com",
+      messagingSenderId: "493659960891",
+      appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
+      measurementId: "G-49BHFJDWQD",
+      databaseURL: "https://miniproject-740e2-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    };
+
+  
+  // Initialize Firebase app
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+// Function to add an item to the cart
+function addCart(user) {
+    // Get a Firestore reference
+    const db = getFirestore(app);
+    const cartCollectionRef = collection(db, 'cart');
+
+    // The user is signed in, so we can get their UID
+    const userID = user.uid;
+    console.log(userID);
+
+    // Generate a unique product ID (you can use a library like uuid or a combination of timestamp and random number)
+    const productID = generateUniqueProductID(); // Implement this function to generate a unique ID
+
+    // Add data to Firestore
+    setDoc(doc(cartCollectionRef, userID, 'products', productID), {
+        name: 'Product Name',
+        price: 99.99
+    }).then(() => {
+        console.log("Added to cart successfully");
+    }).catch((error) => {
+        console.error("Error adding to cart:", error);
+    });
+}
+
+// Generate a unique product ID (you can implement this according to your requirement)
+function generateUniqueProductID() {
+    // Implement your logic to generate a unique product ID, e.g., using timestamp and random number
+    return 'product_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+}
+
+auth.onAuthStateChanged(user => {
+    if (user) {
+        addCart(user);
+    } else {
+        console.log("Not Logged In")
+    }
+});
+
+
+  // Get reference to the button
+  const addButton = document.getElementById('cartButton');
+
+  // Add event listener to the button
+  addButton.addEventListener('click', addCart);
+</script>
+>>>>>>> Stashed changes
+
 </body>
 
 </html>

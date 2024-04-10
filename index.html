@@ -50,9 +50,9 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Settings</span></a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li id="loginButton" class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login">Login</a></li>
-          <li class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#signup-modal"><a class="nav-link scrollto" href="#signup">SignUp</a></li>
-          <li class="logged-in" style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
+          <li id="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login">Login</a></li>
+          <li id="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#signup-modal"><a class="nav-link scrollto" href="#signup">SignUp</a></li>
+          <li id="logged-in" style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -485,7 +485,7 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-            <button id="google-auth-login" class="btn btn-lg btn-danger btn-block" type="button"><i class="bi bi-google"> </i>Login with Google</button>
+            <button class="btn btn-lg btn-danger btn-block" type="button"><i class="bi bi-google"></i>Login with Google</button>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
         </div>
@@ -624,10 +624,9 @@ const auth = firebase.auth();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
-const signupBtn = document.getElementById("google-auth");
-const loginBtn = document.getElementById("google-auth-login");
+const googleAuthBtn = document.getElementById("google-auth");
 
-function userSignUp() {
+function userSignIn() {
   auth.signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
@@ -638,8 +637,7 @@ function userSignUp() {
     });
 }
 
-signupBtn.addEventListener('click', userSignUp);
-loginBtn.addEventListener('click', userSignUp);
+googleAuthBtn.addEventListener('click', userSignIn);
 </script>
   
 

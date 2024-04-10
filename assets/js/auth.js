@@ -13,8 +13,8 @@ auth.language ='en'
 db.settings({ timestampsInSnapshots: true });
 
 //conditional Links
-const loggedOutLinks = document.querySelectorAll('.logged-out');
-const loggedInLinks = document.querySelectorAll('.logged-in');
+const loggedOutLinks = document.querySelectorAll('#logged-out');
+const loggedInLinks = document.querySelectorAll('#logged-in');
 
 const setupUI = (user) => {
   if (user) {
