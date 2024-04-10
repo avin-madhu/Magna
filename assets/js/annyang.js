@@ -10,6 +10,9 @@ window.onload = function()
         'go back up': function() {
           window.location.href = '#';
         },
+        'start Shopping': function() {
+          window.location.href = 'inner-page.html';
+        },
 
         'set quantity to *num': function() {
           
