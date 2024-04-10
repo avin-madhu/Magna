@@ -1,7 +1,9 @@
 window.onload = function()
 {    
-    if (annyang) {
-      // Let's define our first command. First the text we expect, and then the function it should call
+  
+
+  if (annyang) {
+      // basic commands
       var commands = {
         
         'About': function() {
@@ -11,11 +13,22 @@ window.onload = function()
           window.location.href = '#';
         },
         'start Shopping': function() {
-          window.location.href = 'inner-page.html';
+          routeToProductPage()
         },
 
-        'set quantity to *num': function() {
-          
+        // login commands
+        'login': function() {
+          var Element = document.getElementById('loginButton');
+
+          // Create a new mouse click event
+          var clickEvent = new MouseEvent("click", {
+            bubbles: true,
+            cancelable: true,
+            view: window
+          });
+
+          // Dispatch the click event on the <li> element
+          Element.dispatchEvent(clickEvent);
 
         },
         'Increase (text) size':function(){
