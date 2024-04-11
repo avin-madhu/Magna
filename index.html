@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -51,9 +50,9 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Settings</span></a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li id="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login">Login</a></li>
-          <li id="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#signup-modal"><a class="nav-link scrollto" href="#signup">SignUp</a></li>
-          <li id="logged-in" style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
+          <li id="loginButton" class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login">Login</a></li>
+          <li class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#signup-modal"><a class="nav-link scrollto" href="#signup">SignUp</a></li>
+          <li class="logged-in" style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -68,11 +67,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 class="font-size-element">Elegant and creative solutions</h1>
+          <h1 class="font-size-element">Elegant and Shopping with ease</h1>
           <h2 onclick="speakText('We are team of Web Designers making website convenient for the Dyslexic')">We are a team of Web Designers making website convenient for the Dyslexic</h2>
           <div class="d-flex">
-            <a style="cursor: pointer;" onclick="routeToProductPage()" class="btn-get-started scrollto">Start Shopping</a>
-            <a href="https://youtu.be/nT20JV1nRZg?si=N98zvLlEozdSO43e" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          <a style="cursor: pointer;" onclick="routeToProductPage()" class="btn-get-started scrollto">Start Shopping</a>
+            <!-- <a href="https://youtu.be/nT20JV1nRZg?si=N98zvLlEozdSO43e" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -82,7 +81,7 @@
     </div>
 
     <script>
-      function routeToProductPage() {
+  function routeToProductPage() {
   auth.onAuthStateChanged(user => {
     if (user) {
         window.location.href = "inner-page.html";
@@ -107,8 +106,8 @@
             <div class="icon-box">
               <div class="icon"><i class="bi bi-laptop"></i></div>
               <h4 class="title font-size-element"><a href="">Change Font Size</a></h4>
-              <button onclick="increaseFontSize()">Increase Text Size</button>
-              <button onclick="decreaseFontSize()">decrease Text Size</button>
+              <button id="incSizeBtn" class="btn-font-change sizebuttons" onclick="increaseFontSize()">Increase Text Size</button>
+              <button disabled id="decSizeBtn" class="btn-font-change sizebuttons" onclick="decreaseFontSize()">Decrease Text Size</button>
               
               <p class="description font-size-element">oluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
             </div>
@@ -116,16 +115,16 @@
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title font-size-element"><a href="">Dolor Sitema</a></h4>
-              <button onclick="changeFontStyle()">Change Font Style</button>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              <h4 class="title font-size-element"><a href="">Change Font Style</a></h4>
+              <button class="btn-font-change sizebuttons" onclick="changeFontStyle()">Change Font Style</button>
+              <p class="description font-size-element">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-clipboard-data"></i></div>
               <h4 class="title font-size-element"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <p class="description font-size-element">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
             </div>
           </div>
         </div>
@@ -141,13 +140,19 @@
     <section id="about" class="about">
       <div class="container">
 
+        <div class="section-title">
+          <span>About us</span>
+          <h2>About us</h2>
+          <p>More about us</p>
+        </div>
+
         <div class="row">
           <div class="col-lg-6">
-            <img src="assets/img/about.png" class="img-fluid" alt="">
+            <img src="assets/img/about2.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3>About Us</h3>
-            <!-- <p class="fst-italic">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
+            <p class="fst-italic">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua.
             </p>
@@ -155,43 +160,40 @@
               <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
               <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
               <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda</li>
+
             </ul> -->
             <p>
               Welcome to EaseMart, where inclusivity reigns. We prioritize dyslexic users with simplified language, customizable fonts, and clear navigation. 
               Our platform fosters accessibility, setting new online shopping standards. We recognize dyslexia's challenges and aim to support users with tailored features, ensuring everyone can shop with ease. 
               From intuitive design to thoughtful features, we celebrate diversity and empower all customers to navigate our platform effortlessly.
                At EaseMart, we're committed to creating a welcoming environment where everyone feels supported and included, revolutionizing the online shopping experience for individuals with dyslexia.</p>
+           
           </div>
         </div>
 
       </div>
     </section><!-- End About Section -->
-
-<!-- ======= Counts Section ======= -->
-<section id="counts" class="counts">
-  <div class="container">
-
-    <div class="row counters">
-
-      <div class="col-lg-3 col-6 text-center">
-        <span data-purecounter-start="0" data-purecounter-end="532" data-purecounter-duration="1" class="purecounter"></span>
-        <p>Clients</p>
+    
+     <!-- <div class="container">
+      <div class="row counters">
+  
+        <div class="col-lg-3 col-6 text-center">
+          <span style="" data-purecounter-start="0" data-purecounter-end="532" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Clients</p>
+        </div>
+  
+        <div class="col-lg-3 col-6 text-center">
+          <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Products</p>
+        </div>
+  
+        <div class="col-lg-3 col-6 text-center">
+          <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Hours Of Support</p>
+        </div>
       </div>
-
-      <div class="col-lg-3 col-6 text-center">
-        <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
-        <p>Products</p>
-      </div>
-
-      <div class="col-lg-3 col-6 text-center">
-        <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-        <p>Hours Of Support</p>
-      </div>
-
-      
     </div>
-
-  </div>
+  </div> -->
 </section><!-- End Counts Section -->
 
 <!-- ======= Services Section ======= -->
@@ -329,7 +331,7 @@
 
       <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
         <div class="member">
-          <img src="assets/img/team/team-4.jpg" alt="">
+          <img src="assets/img/team/team-3.jpg" alt="">
           <h4>Gopika Chandran A J</h4>
           
           
@@ -377,13 +379,13 @@
                 <p>+91 7902467901</p>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1233.8733146218403!2d76.61737353899808!3d9.31740510264319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0622ea027eb08f%3A0x41105b207db821c6!2sCollege%20of%20Engineering%20Chengannur!5e0!3m2!1sen!2sin!4v1710601225900!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-            </div>  
-           
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form  method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -476,8 +478,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+
           <form id="login-form"  class="text-center" class="form-signin">
             <img class="mb-4" src="assets/img/favicon.png" alt="" width="72" height="72">
+
+         
+
             <h1 class="h3 mb-3 font-weight-normal">Login</h1>
             <br>
             <input type="email" id="login-email" class="form-control" placeholder="Email address" required autofocus>
@@ -486,11 +492,12 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <button id="google-auth-login" class="btn btn-lg btn-danger btn-block" type="button"><i class="bi bi-google"></i>Login with Google</button>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   <!-- Sign Up Modal -->
@@ -516,6 +523,7 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            <button id="google-auth" class="btn btn-lg btn-danger btn-block"><i class="bi bi-google"></i>Sign in With Google</button>
             <br>
             <p style="margin-top: 10px;">Already Have an Account? <a href="#login" data-bs-target="#login-modal" data-bs-toggle="modal">Login</a></p>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
@@ -529,6 +537,9 @@
   <script>
 
     // Night and day Mode
+    let count = 0;
+    const incSizeBtn = document.getElementById("incSizeBtn");
+    const decSizeBtn = document.getElementById("decSizeBtn");
     
     fontArray = [ 'Arial, sans-serif', 'Courier New, monospace', '"Lexend", sans-serif']
                     var FontStyleElement = document.querySelectorAll('body');
@@ -545,19 +556,31 @@
 
                 var FontSizeElements = document.querySelectorAll('.font-size-element');
                 function increaseFontSize() {
+                  decSizeBtn.disabled = false;
+                  if (count == 4) {
+                      incSizeBtn.disabled = true;
+                    }
+                    count++;  
                 FontSizeElements.forEach(function (element) {
                     var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
                     console.log(currentSize)
                     var newSize = currentSize + 5; // You can adjust the value as needed
                     
                     element.style.fontSize = newSize + 'px';
+                    element.style.lineHeight = newSize + 'px';
                 });
               }
                 function decreaseFontSize() {
+                  incSizeBtn.disabled = false;
+                  if (count == 1) {
+                      decSizeBtn.disabled = true;
+                    }
+                    count--;
                 FontSizeElements.forEach(function (element) {
                     var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
                     var newSize = currentSize - 5; // You can adjust the value as needed
                     element.style.fontSize = newSize + 'px';
+                    element.style.lineHeight = newSize + 'px';
                 });
               }
                 
@@ -600,16 +623,31 @@
       appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
       measurementId: "G-49BHFJDWQD"
     };
-  
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-  
-    // Get authentication and Firestore references
-    const auth = firebase.auth();
-    const db = firebase.firestore();
 
-    db.settings({ timestampsInSnapshots: true });
-  </script>
+     // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+
+const loginBtn = document.getElementById("google-auth");
+const signupBtn = document.getElementById("google-auth-login")
+
+function userSignIn() {
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+}
+
+loginBtn.addEventListener('click', userSignIn);
+signupBtn.addEventListener('click', userSignIn);
+</script>
   
 
   <!-- VendorJS Files -->
@@ -621,7 +659,6 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
   <!-- Template Main JS File -->

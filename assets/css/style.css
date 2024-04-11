@@ -393,11 +393,33 @@ h6 {
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
-  background: #16df7e;
-  box-shadow: 0 8px 28px rgba(22, 223, 126, 0.45);
+  background-color : #5616df;
+  box-shadow: 0 8px 28px #1616d889;
 }
 
 #hero .btn-get-started:hover {
+  background-color : #206bfb;
+  box-shadow: 0 8px 28px rgba(32, 107, 251, 0.45);
+}
+
+.btn-font-change {
+  font-family: "Raleway", sans-serif;
+  font-weight:bolder;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 15px 10px 15px;
+  border-radius: 8px;
+  transition: 0.5s;
+  color: rgb(0, 0, 0);
+  background-color: rgb(207, 179, 255);
+  border-color:rgb(35, 35, 35);
+  box-shadow: rgb(0, 255, 21);
+  margin-bottom:15px;
+  border-style:none;
+}
+
+#hero .btn-font-change:hover {
   background: #206bfb;
   box-shadow: 0 8px 28px rgba(32, 107, 251, 0.45);
 }
@@ -426,6 +448,10 @@ h6 {
 
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+.sizebuttons{
+  border-radius:3.5px;
 }
 
 @media (max-width: 991px) {

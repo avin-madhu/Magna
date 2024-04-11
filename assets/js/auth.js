@@ -7,13 +7,14 @@ import "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
 // make auth and firestore references
 const auth = firebase.auth();
 const db = firebase.firestore();
+auth.language ='en'
 
 // update firestore settings
 db.settings({ timestampsInSnapshots: true });
 
 //conditional Links
-const loggedOutLinks = document.querySelectorAll('#logged-out');
-const loggedInLinks = document.querySelectorAll('#logged-in');
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+const loggedInLinks = document.querySelectorAll('.logged-in');
 
 const setupUI = (user) => {
   if (user) {
@@ -46,8 +47,7 @@ signupForm.addEventListener('submit', (e) => {
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     console.log("user Created", cred.user);
     alert("User Created Successfully")
-    // const modal = document.querySelector('#signup-modal');
-    // modal.hide()
+    
     signupForm.reset();
   });
   });
@@ -71,9 +71,9 @@ signupForm.addEventListener('submit', (e) => {
         window.localStorage.setItem("UserUid", cred.user.uid);
         console.log(cred.user.uid);
         loginForm.reset();
+        const modal = document.querySelector('#login-modal');
+        modal.hide()
+      }).catch((error) => {
+        console.log(error);
         });
     });
-
-
-
-
