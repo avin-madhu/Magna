@@ -58,6 +58,8 @@
 
   <main id="main">
 
+
+  <section id="product-page-real">
     <section id="portfolio" class="portfolio">
       <div class="container">
 
@@ -107,20 +109,21 @@
 
         <div class="row portfolio-container">
 
-          <div id="1" class="product-item col-lg-4 col-md-6 portfolio-item filter-cloth">
+          <div class="product-item col-lg-4 col-md-6 portfolio-item filter-cloth">
             <div class="product-card">
                 <img src="assets/img/portfolio/portfolio1.jpg" class="img-fluid" alt="Product Image">
                 <div class="product-info">
                     <h4 style="color: aliceblue;">Graphic Black T-Shirt</h4>
-                    <p style="color: aliceblue;font-size: 30px;"class="price">$49.99</p>
+                    <p  style="color: aliceblue;font-size: 30px;"class="price">$49.99</p>
                     <!-- Additional information like product description, ratings, etc. can be added here -->
                     <div class="product-actions">
                         <a href="assets/img/portfolio/portfolio1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="View Product"><i class="bx bx-cart-add"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                        <a onclick="changepage(1)" class="details-link"><i class="bi bi-bag-heart"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+
 
           <div id="2" class="product-item col-lg-4 col-md-6 portfolio-item filter-sport">
             <div class="product-card">
@@ -130,7 +133,7 @@
                 <p style="font-size: 30px;"class="price">$30.00</p>
                 <div class="product-actions">
                   <a href="assets/img/portfolio/portfolio2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-cart-add"></i></a>
-                  <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
+                  <a onclick="changepage(2)" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
                 </div>
               </div>
             </div>
@@ -329,50 +332,159 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-
-      <div class="container">
-
-        <div class="row  justify-content-center">
-          <div class="col-lg-6">
-            <h3>Dyslexic Site</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
-          </div>
-        </div>
-
-        <div class="row footer-newsletter justify-content-center">
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Dyslexic</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="">Team 8</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+</section>
+
+
+  <!-- =========================================================================================================== -->
+                                       <!-- PRODUCT DESCRIPTION PAGE -->
+  <!-- =========================================================================================================== -->
+
+  <section id="productDescripton-section" style="display: none;">
+    <main id="main">
+
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+  
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Product Details</h2>
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li>Product Details</li>
+            </ol>
+          </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+  
+      <!-- ======= Products Details Section ======= -->
+      <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+  
+          <div class="row gy-4">
+  
+            <div class="col-lg-8">
+              <div class="portfolio-details-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+  
+                  <div class="swiper-slide">
+                    <img id="productImage1" src="assets/img/portfolio/portfolio-1.jpg" alt="">
+                  </div>
+  
+                  <div class="swiper-slide">
+                    <img src="assets/img/portfolio/portfolio-2.jpg" alt="">
+                  </div>
+  
+                  <div class="swiper-slide">
+                    <img src="assets/img/portfolio/portfolio-3.jpg" alt="">
+                  </div>
+  
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4">
+              <div class="portfolio-info">
+                <h2 id="productName"></h2>
+                <ul>
+                  <li><strong>Category</strong>: design</li>
+                  <li><strong>Client</strong>: ASU Company</li>
+                  <li><strong>Product date</strong>: 01 March, 2020</li>
+                  <li><strong>Status</strong>: Available</li>
+                </ul>
+              </div>
+              <form method="post"> <!-- Change the form action to your purchase processing page -->
+                <label for="quantity">Quantity</label>
+                <input onchange="updatePrice()" name="quantity" placeholder="Quantity" type="number" id="quantity" value="1" min="1">
+                <h2 id="productPrice" style="font-weight: 500;font-size:50px;">$30.00</h3>
+                <button class="btn btn-primary" style="font-size: 1.2em; padding: 10px 20px; margin-top: 10px;">Purchase Now</button> <!-- Enlarge the button and change text -->
+              </form>
+              <div class="portfolio-description">
+                <h2>This is an example of product detail</h2>
+                <p id="productDescriptionMore">
+                  Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                </p>
+              </div>
+            </div>
+  
+            <style>
+              /* Style for custom input */
+  #quantity {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 1em;
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  
+  #quantity:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+            </style>
+            
+  
+          </div>
+  
+        </div>
+      </section><!-- End Portfolio Details Section -->
+  
+    </main><!-- End #main -->
+  </section>
+
+  <script>
+
+    const productDetailsArray = {
+      1:{
+
+        title: "Black Tshirt",
+        descrtiption: "bjcajkjn",
+        price: "$49.99",
+        image1: "https://ubiquitous-fiesta-4rxgvjjj9gqcq9rp-5500.app.github.dev/assets/img/portfolio/portfolio1.jpg"
+
+      },
+      2:{
+        title: "Leather Football",
+        description: "hey hey",
+        price: "$30.00",
+        image1: "https://ubiquitous-fiesta-4rxgvjjj9gqcq9rp-5500.app.github.dev/assets/img/portfolio/portfolio2.jpg"
+      }
+    }
+    function changepage(btnid){
+      let page2 = document.getElementById("productDescripton-section")
+      let page1 = document.getElementById("product-page-real")
+      page2.style.display = 'block'
+      page1.style.display = 'none'
+
+          let productHeadingElement = document.getElementById("productName")
+          let productPriceElement = document.getElementById("productPrice")
+          let productDescriptionElement = document.getElementById("productDescriptionMore")
+          let productImageElement1 = document.getElementById("productImage1")
+
+        
+          productHeadingElement.innerText = productDetailsArray[btnid].title
+          productPriceElement.innerText = productDetailsArray[btnid].price
+          productDescriptionElement.innerText = productDetailsArray[btnid].description
+          productImageElement1.src = productDetailsArray[btnid].image1
+    }
+
+    let priceElement = document.getElementById("productPrice");
+    let originalPrice = parseFloat(priceElement.innerText.replace('$', ''));
+   // Define the updatePrice function
+function updatePrice() {
+    
+    let quantityElement = document.getElementById("quantity");
+    let quantityValue = parseInt(quantityElement.value);
+    let newPrice = originalPrice * quantityValue;
+    priceElement.innerText = "$" + newPrice.toFixed(2);
+   }
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -380,10 +492,13 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/productDetails.js"></script>
+  <script src="assets/js/annyang.js"></script>
 
 </body>
 
