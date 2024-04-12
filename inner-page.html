@@ -440,20 +440,43 @@
 
   <script>
 
+    // product description read out
+   function speakText(text) {
+                const selectedVoice = getSpecificVoice();
+                if (selectedVoice) {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.voice = selectedVoice;
+                    speechSynthesis.cancel(); // Stop any ongoing speech
+                    speechSynthesis.speak(utterance);
+
+                    utterance.onend = function () {
+                        // Speech has ended
+                        console.log('Speech ended');
+                    };
+                }
+              }
+
+              function getSpecificVoice() {
+                // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
+                const voiceName = 'Google UK English Female';
+                const voices = speechSynthesis.getVoices();
+                return voices.find(voice => voice.name === voiceName);
+              }
+
     const productDetailsArray = {
       1:{
 
         title: "Black Tshirt",
         descrtiption: "bjcajkjn",
         price: "$49.99",
-        image1: "https://ubiquitous-fiesta-4rxgvjjj9gqcq9rp-5500.app.github.dev/assets/img/portfolio/portfolio1.jpg"
+        image1: "assets/img/portfolio/portfolio1.jpg"
 
       },
       2:{
         title: "Leather Football",
         description: "hey hey",
         price: "$30.00",
-        image1: "https://ubiquitous-fiesta-4rxgvjjj9gqcq9rp-5500.app.github.dev/assets/img/portfolio/portfolio2.jpg"
+        image1: "assets/img/portfolio/portfolio2.jpg"
       }
     }
     function changepage(btnid){
@@ -472,6 +495,9 @@
           productPriceElement.innerText = productDetailsArray[btnid].price
           productDescriptionElement.innerText = productDetailsArray[btnid].description
           productImageElement1.src = productDetailsArray[btnid].image1
+
+            const readOutText = `You are proceeding to buy ${productHeadingElement} of price ${productPriceElement}. Please click the blue button to proceed payment.`
+            speakText(readOutText)
     }
 
     let priceElement = document.getElementById("productPrice");
@@ -484,6 +510,11 @@ function updatePrice() {
     let newPrice = originalPrice * quantityValue;
     priceElement.innerText = "$" + newPrice.toFixed(2);
    }
+
+          
+  </script>
+
+
   </script>
 
   <!-- Vendor JS Files -->
