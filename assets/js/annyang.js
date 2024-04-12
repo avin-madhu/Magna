@@ -2,8 +2,10 @@ window.onload = function()
 {    
     if (annyang) {
       
-
-      // basic commands
+// ========================================================================================================================
+        //  HOME PAGE
+//=========================================================================================================================
+      
       var commands = {
         
         'About': function() {
@@ -28,7 +30,23 @@ window.onload = function()
         },
         'Change (font) style':function(){
           changeFontStyle();
-        }
+        },
+
+// =========================================================================================================================
+        // product page
+//==========================================================================================================================
+        '(go) back (to product page)': function(){
+          if (window.location.pathname == '/inner-page.html'){
+            window.location.href = "index.html"
+          }
+        },
+        '(change category to) electronics': function()
+          {
+
+          },
+          'say again': function(){
+            
+          }
 
       };
 
