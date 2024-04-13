@@ -7,7 +7,6 @@ window.onload = function()
 //=========================================================================================================================
       
       var commands = {
-        
         'About': function() {
           window.location.href = '#about';
         },
@@ -35,7 +34,7 @@ window.onload = function()
 // =========================================================================================================================
         // product page
 //==========================================================================================================================
-        '(go) back (to product page)': function(){
+        '(go) back (to home)': function(){
           if (window.location.pathname == '/inner-page.html'){
             window.location.href = "index.html"
           }

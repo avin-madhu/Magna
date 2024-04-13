@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -117,7 +116,7 @@
                     <p  style="color: aliceblue;font-size: 30px;"class="price">₹49.99</p>
                     <!-- Additional information like product description, ratings, etc. can be added here -->
                     <div style="align-content: center;" class="product-actions">
-                        <a href="assets/img/portfolio/portfolio1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="View Product"><i class="bx bx-cart-add"></i></a>
+                        <a  href="#"  title="View Product"><i class="bx bx-cart-add"></i></a>
                         <a onclick="changepage(1)" class="details-link"><button class="btn btn-success" >Buy Now</button></a>
                     </div>
                 </div>
@@ -240,6 +239,51 @@
         </div>
 
       </div>
+
+<script>
+
+  //  ==================================================================================== //
+            //  add to cart
+  // ===================================================================================== //
+
+ // Firebase imports
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID",
+};
+
+// Initialize Firebase app
+const app = initializeApp(firebaseConfig);
+
+// Get a reference to the Firestore service
+const db = getFirestore(app);
+
+// Product details array
+const productDetailsArrayForCart = {
+  1: {
+    title: "Black Tshirt",
+    description: "bjcajkjn",
+    price: "₹49.99",
+    image1: "assets/img/portfolio/portfolio1.jpg"
+  },
+  2: {
+    title: "Leather Football",
+    description: "hey hey",
+    price: "₹30.00",
+    image1: "assets/img/portfolio/portfolio2.jpg"
+  }
+};
+
+      </script>
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Testimonials Section ======= -->
@@ -307,21 +351,7 @@
           
             </div><!-- End testimonial item -->
 
-            <div class="swiper-slide">
-              <div id="9" style="width: 300px"class="product-item col-lg-4 col-md-6 portfolio-item filter-cloth">
-                <div class="product-card">
-                  <img src="assets/img/portfolio/bottle.jpg" class="img-fluid" alt="">
-                  <div class="product-info">
-                    <h4>Water Bottle</h4>
-                    <p>₹100.00</p>
-                    <div class="product-actions">
-                      <a href="assets/img/portfolio/bottle.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-cart-add"></i></a>
-                      <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bi bi-bag-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
+            
             </div><!-- End testimonial item -->
 
           </div>
@@ -441,7 +471,17 @@
     </main><!-- End #main -->
   </section>
 
-  <script>
+
+  <!-- ================================================================================================================================= -->
+                                    <!-- cart section -->
+  <!-- ================================================================================================================================= -->
+
+  <section id="cart-section" style="display: none">
+    
+  
+  </section>
+
+  <script >
 
     // product description read out
               function speakText(text) {
@@ -553,8 +593,6 @@ function updatePrice() {
     let newPrice = originalPrice * quantityValue;
     priceElement.innerText = "₹" + newPrice.toFixed(2);
    }
-
-          
   </script>
 
   <!-- Vendor JS Files -->
@@ -570,6 +608,7 @@ function updatePrice() {
   <script src="assets/js/main.js"></script>
   <script src="assets/js/productDetails.js"></script>
   <script src="assets/js/annyang.js"></script>
+  <script src="assets/js/cartPage.js"></script>
 
 </body>
 
