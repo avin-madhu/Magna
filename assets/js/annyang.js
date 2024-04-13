@@ -31,6 +31,7 @@ window.onload = function()
           changeFontStyle();
         },
 
+
 // =========================================================================================================================
         // product page
 //==========================================================================================================================
@@ -39,9 +40,10 @@ window.onload = function()
             window.location.href = "index.html"
           }
         },
-        '(change category to) electronics': function()
+        'turn off text reading': function()
           {
-
+               alert("text reading turned off")
+               turnon = false
           },
           'say again': function(){
             

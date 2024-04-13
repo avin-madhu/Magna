@@ -105,8 +105,8 @@
             <div class="icon-box">
               <div class="icon"><i class="bi bi-laptop"></i></div>
               <h4 class="title font-size-element"><a href="">Change Font Size</a></h4>
-              <button id="incSizeBtn" class="btn-font-change sizebuttons" onclick="increaseFontSize()">Increase Text Size</button>
-              <button id="decSizeBtn" class="btn-font-change sizebuttons" onclick="decreaseFontSize()">Decrease Text Size</button>
+              <button onpointermove="speakText('increase text size')" id="incSizeBtn" class="btn-font-change sizebuttons" onclick="increaseFontSize()">Increase Text Size</button>
+              <button onpointermove="speakText('decrease text size')" id="decSizeBtn" class="btn-font-change sizebuttons" onclick="decreaseFontSize()">Decrease Text Size</button>
               
               <p class="description font-size-element">oluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
             </div>
@@ -115,7 +115,7 @@
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
               <h4 class="title font-size-element"><a href="">Change Font Style</a></h4>
-              <button class="btn-font-change sizebuttons" onclick="changeFontStyle()">Change Font Style</button>
+              <button onpointermove="speakText('change font style')" class="btn-font-change sizebuttons" onclick="changeFontStyle()">Change Font Style</button>
               <p class="description font-size-element">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
           </div>
@@ -422,12 +422,11 @@
           </div>
         </div>
 
-        <div class="social-links">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <div style="padding: 20px;" class="social-links">
+          <a onpointermove="speakText('visit our twitter account')" href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a onpointermove="speakText('visit our facebook account')"  href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a onpointermove="speakText('visit our instagram account')" href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a onpointermove="speakText('visit our linkedin account')" href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
 
       </div>
@@ -563,29 +562,33 @@
                     element.style.lineHeight = newSize + 'px';
                 });
               }
-                
-                // Text To Speech On Hover
+
+            // Text To Speech On Hover
+            
                 function speakText(text) {
-                const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
-                if (selectedVoice) {
-                    const utterance = new SpeechSynthesisUtterance(text);
-                    utterance.voice = selectedVoice;
-                    speechSynthesis.cancel(); // Stop any ongoing speech
-                    speechSynthesis.speak(utterance);
+                    const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
+                    if (selectedVoice) {
+                        const utterance = new SpeechSynthesisUtterance(text);
+                        utterance.voice = selectedVoice;
+                        speechSynthesis.cancel(); // Stop any ongoing speech
+                        speechSynthesis.speak(utterance);
 
-                    utterance.onend = function () {
-                        // Speech has ended
-                        console.log('Speech ended');
-                    };
+                        utterance.onend = function () {
+                            // Speech has ended
+                            console.log('Speech ended');
+                        };
+                    }
                 }
-              }
 
-              function getSpecificVoice() {
-                // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
-                const voiceName = 'Google UK English Female';
-                const voices = speechSynthesis.getVoices();
-                return voices.find(voice => voice.name === voiceName);
-              }
+                function getSpecificVoice() {
+                    // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
+                    const voiceName = 'Google UK English Female';
+                    const voices = speechSynthesis.getVoices();
+                    return voices.find(voice => voice.name === voiceName);
+                }
+
+            
+    
   </script>
   <!-- FireBase Configuration Scripts -->
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
