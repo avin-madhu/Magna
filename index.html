@@ -48,7 +48,6 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li class="logged-in" style="display: none;"><a class="nav-link scrollto " href="inner-page.html">Products</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Settings</span></a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li id="loginButton" class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login">Login</a></li>
           <li class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#signup-modal"><a class="nav-link scrollto" href="#signup">SignUp</a></li>
@@ -106,8 +105,8 @@
             <div class="icon-box">
               <div class="icon"><i class="bi bi-laptop"></i></div>
               <h4 class="title font-size-element"><a href="">Change Font Size</a></h4>
-              <button id="incSizeBtn" class="btn-font-change sizebuttons" onclick="increaseFontSize()">Increase Text Size</button>
-              <button disabled id="decSizeBtn" class="btn-font-change sizebuttons" onclick="decreaseFontSize()">Decrease Text Size</button>
+              <button onpointermove="speakText('increase text size')" id="incSizeBtn" class="btn-font-change sizebuttons" onclick="increaseFontSize()">Increase Text Size</button>
+              <button onpointermove="speakText('decrease text size')" id="decSizeBtn" class="btn-font-change sizebuttons" onclick="decreaseFontSize()">Decrease Text Size</button>
               
               <p class="description font-size-element">oluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
             </div>
@@ -116,7 +115,7 @@
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
               <h4 class="title font-size-element"><a href="">Change Font Style</a></h4>
-              <button class="btn-font-change sizebuttons" onclick="changeFontStyle()">Change Font Style</button>
+              <button onpointermove="speakText('change font style')" class="btn-font-change sizebuttons" onclick="changeFontStyle()">Change Font Style</button>
               <p class="description font-size-element">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
           </div>
@@ -152,6 +151,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0 content">
                       
             <ul>
+
               <li onclick="speakText('Welcome to EaseMart, where inclusivity reigns. We prioritize dyslexic users with simplified language, customizable fonts, and clear navigation.')"><i class="bi bi-check-circle"></i> Welcome to EaseMart, where inclusivity reigns. We prioritize dyslexic users with simplified language, customizable fonts, and clear navigation. </li>
               <li onclick="speakText('Our platform fosters accessibility, setting new online shopping standards. We recognize dyslexic challenges and aim to support users with tailored features, ensuring everyone can shop with ease.')"><i class="bi bi-check-circle"></i>Our platform fosters accessibility, setting new online shopping standards. We recognize dyslexia's challenges and aim to support users with tailored features, ensuring everyone can shop with ease.  </li>
               <li onclick="speakText('From intuitive design to thoughtful features, we celebrate diversity and empower all customers to navigate our platform effortlessly.')"><i class="bi bi-check-circle"></i>From intuitive design to thoughtful features, we celebrate diversity and empower all customers to navigate our platform effortlessly.</li>
@@ -359,7 +359,7 @@
                 <p>+91 7902467901</p>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.1798691608765!2d76.61490531107472!3d9.31732529071744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0622ea027eb08f%3A0x41105b207db821c6!2sCollege%20of%20Engineering%20Chengannur!5e0!3m2!1sen!2sin!4v1713006756272!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
             </div>
 
           </div>
@@ -422,12 +422,11 @@
           </div>
         </div>
 
-        <div class="social-links">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <div style="padding: 20px;" class="social-links">
+          <a onpointermove="speakText('visit our twitter account')" href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a onpointermove="speakText('visit our facebook account')"  href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a onpointermove="speakText('visit our instagram account')" href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a onpointermove="speakText('visit our linkedin account')" href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
 
       </div>
@@ -563,29 +562,33 @@
                     element.style.lineHeight = newSize + 'px';
                 });
               }
-                
-                // Text To Speech On Hover
+
+            // Text To Speech On Hover
+            
                 function speakText(text) {
-                const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
-                if (selectedVoice) {
-                    const utterance = new SpeechSynthesisUtterance(text);
-                    utterance.voice = selectedVoice;
-                    speechSynthesis.cancel(); // Stop any ongoing speech
-                    speechSynthesis.speak(utterance);
+                    const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
+                    if (selectedVoice) {
+                        const utterance = new SpeechSynthesisUtterance(text);
+                        utterance.voice = selectedVoice;
+                        speechSynthesis.cancel(); // Stop any ongoing speech
+                        speechSynthesis.speak(utterance);
 
-                    utterance.onend = function () {
-                        // Speech has ended
-                        console.log('Speech ended');
-                    };
+                        utterance.onend = function () {
+                            // Speech has ended
+                            console.log('Speech ended');
+                        };
+                    }
                 }
-              }
 
-              function getSpecificVoice() {
-                // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
-                const voiceName = 'Google UK English Female';
-                const voices = speechSynthesis.getVoices();
-                return voices.find(voice => voice.name === voiceName);
-              }
+                function getSpecificVoice() {
+                    // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
+                    const voiceName = 'Google UK English Female';
+                    const voices = speechSynthesis.getVoices();
+                    return voices.find(voice => voice.name === voiceName);
+                }
+
+            
+    
   </script>
   <!-- FireBase Configuration Scripts -->
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
@@ -639,8 +642,7 @@ signupBtn.addEventListener('click', userSignIn);
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
-
+ 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 

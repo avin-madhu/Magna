@@ -2,10 +2,11 @@ window.onload = function()
 {    
     if (annyang) {
       
-
-      // basic commands
+// ========================================================================================================================
+        //  HOME PAGE
+//=========================================================================================================================
+      
       var commands = {
-        
         'About': function() {
           window.location.href = '#about';
         },
@@ -28,7 +29,25 @@ window.onload = function()
         },
         'Change (font) style':function(){
           changeFontStyle();
-        }
+        },
+
+
+// =========================================================================================================================
+        // product page
+//==========================================================================================================================
+        '(go) back (to home)': function(){
+          if (window.location.pathname == '/inner-page.html'){
+            window.location.href = "index.html"
+          }
+        },
+        'turn off text reading': function()
+          {
+               alert("text reading turned off")
+               turnon = false
+          },
+          'say again': function(){
+            
+          }
 
       };
 
