@@ -45,8 +45,11 @@ window.onload = function()
                alert("text reading turned off")
                turnon = false
           },
-          'say again': function(){
-            
+          'back to product page': function(){
+            let page2 = document.getElementById("productDescripton-section")
+            let page1 = document.getElementById("product-page-real")
+            page2.style.display = 'none'
+            page1.style.display = 'block'  
           }
 
       };
