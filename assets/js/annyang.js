@@ -10,6 +10,15 @@ window.onload = function()
         'About': function() {
           window.location.href = '#about';
         },
+        'contact': function() {
+          window.location.href = '#contact';
+        },
+        'team': function() {
+          window.location.href = '#team';
+        },
+        'services': function() {
+          window.location.href = '#services';
+        },
         'go back up': function() {
           window.location.href = '#';
         },
