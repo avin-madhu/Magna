@@ -31,8 +31,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="index.html">magna</a></h1>
+      <h1 class="logo"> <i onclick="goBackToProductPage()" style="margin-right: 30px; position: absolute; left: 40px; font-size: 35px; cursor: pointer;" class="bi bi-arrow-left-short"></i><a href="index.html">magna</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -210,7 +209,7 @@
           <div class="product-item col-lg-4 col-md-6 portfolio-item filter-sport">
             <div class="product-card">
               <img src="assets/img/portfolio/portfolio8.jpg" class="img-fluid" alt="">
-              <div class="product-info">
+              <div id="7" class="product-info">
                 <h4 style="color: aliceblue;">Cricket Helmet</h4>
                 <p style="font-size: 30px;"class="price">$149.99</p>
                 <div class="product-actions">
@@ -224,7 +223,7 @@
           <div class="product-item col-lg-4 col-md-6 portfolio-item filter-cloth">
             <div class="product-card">
               <img src="assets/img/portfolio/portfolio9.jpg" class="img-fluid" alt="">
-              <div class="product-info">
+              <div id="9" class="product-info">
                 <h4 style="color: aliceblue;">Puffer Jacket (Yellow)</h4>
                 <p style="font-size: 30px;"class="price">$35.00</p>
                 <div class="product-actions">
@@ -239,50 +238,6 @@
 
       </div>
 
-<script>
-
-  //  ==================================================================================== //
-            //  add to cart
-  // ===================================================================================== //
-
- // Firebase imports
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID",
-};
-
-// Initialize Firebase app
-const app = initializeApp(firebaseConfig);
-
-// Get a reference to the Firestore service
-const db = getFirestore(app);
-
-// Product details array
-const productDetailsArrayForCart = {
-  1: {
-    title: "Black Tshirt",
-    description: "bjcajkjn",
-    price: "$49.99",
-    image1: "assets/img/portfolio/portfolio1.jpg"
-  },
-  2: {
-    title: "Leather Football",
-    description: "hey hey",
-    price: "$30.00",
-    image1: "assets/img/portfolio/portfolio2.jpg"
-  }
-};
-
-      </script>
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Testimonials Section ======= -->
@@ -431,7 +386,7 @@ const productDetailsArrayForCart = {
               <form method="post"> <!-- Change the form action to your purchase processing page -->
                 <label for="quantity">Quantity</label>
                 <input onchange="updatePrice()" name="quantity" placeholder="Quantity" type="number" id="quantity" value="1" min="1">
-                <h2 id="productPrice" style="font-weight: 500;font-size:50px;">$30.00</h3>
+                <h2 id="productPrice" style="font-weight: 500;font-size:50px;"></h3>
                   <a class="btn btn-primary btn-lg" style="cursor: pointer; margin-top: 20px;" href="" onclick="alert('Purchased yey!!'); return false;">Buy Now</a>
               </form>
               <div class="portfolio-description">
@@ -539,19 +494,22 @@ const productDetailsArrayForCart = {
               title: "Black Tshirt",
               description: "Elevate your style with this classic Men's Printed Round Neck Pure Cotton Black T-Shirt. Crafted for comfort and designed to make a statement, this timeless piece is a must-have for every wardrobe.",
               price: "$49.99",
-              image1: "assets/img/portfolio/portfolio1.jpg"
+              image1: "assets/img/portfolio/portfolio1.jpg",
+              set: ""
             },
             2:{
               title: "Leather Football",
               description: "Unleash your skills on the field with the MAYOR Sammy-3 Football. Made from high-quality leather and designed for optimal performance, this football ensures precision and durability in every game.",
-              price: "$19.89",
-              image1: "assets/img/portfolio/portfolio2.jpg"
+              price: "$30.00",
+              image1: "assets/img/portfolio/portfolio2.jpg",
+              set: ""
             },
             3:{
               title: "Cricket Bat",
               description: "Dominate the cricket pitch with the CEAT Poplar Willow Cricket Bat. Handcrafted for power and precision, this bat delivers exceptional performance and responsiveness, making it the perfect choice for every aspiring cricketer.",
               price: "$19.89",
-              image1: "assets/img/portfolio/portfolio3.jpg"
+              image1: "assets/img/portfolio/portfolio3.jpg",
+              set: ""
             },
             4:{
               title: "Black Sunglasses",
@@ -616,17 +574,21 @@ const productDetailsArrayForCart = {
           }
 
 
+    let globalid = 0
+
     function changepage(btnid){
+
+      
       let page2 = document.getElementById("productDescripton-section")
       let page1 = document.getElementById("product-page-real")
       page2.style.display = 'block'
       page1.style.display = 'none'
+      globalid = btnid
 
           let productHeadingElement = document.getElementById("productName")
           let productPriceElement = document.getElementById("productPrice")
           let productDescriptionElement = document.getElementById("productDescriptionMore")
           let productImageElement1 = document.getElementById("productImage1")
-
         
           productHeadingElement.innerText = productDetailsArray[btnid].title
           productPriceElement.innerText = productDetailsArray[btnid].price
@@ -635,28 +597,30 @@ const productDetailsArrayForCart = {
 
           const readOutText = `You are proceeding to buy ${productDetailsArray[btnid].title} of price ${productDetailsArray[btnid].price}. Please click the blue button to proceed payment.`;
           speakText(readOutText);    
-          if (annyang) {     
-            var commands = {
-              'say again': function(){
-                speakText(readOutText);    
-              }
-
-            };
-            annyang.addCommands(commands);
-            annyang.start();
-          }
     }
+
     let priceElement = document.getElementById("productPrice");
-    let originalPrice = parseFloat(priceElement.innerText.replace('$', ''));
+    console.log(priceElement.innerText)
+    
    // Define the updatePrice function
 function updatePrice() {
-    
+    let priceString = productDetailsArray[globalid].price; // Get the price string from the product details array
+    let originalPrice = parseFloat(priceString.replace("$", ""));
     let quantityElement = document.getElementById("quantity");
     let quantityValue = parseInt(quantityElement.value);
     let newPrice = originalPrice * quantityValue;
     priceElement.innerText = "$" + newPrice.toFixed(2);
     speakText(`Price changed to ${priceElement.innerText}. Click the blue button to proceed`)
-   }
+       } 
+
+
+    function goBackToProductPage()
+    {
+            let page2 = document.getElementById("productDescripton-section")
+            let page1 = document.getElementById("product-page-real")
+            page2.style.display = 'none'
+            page1.style.display = 'block' 
+    }
   </script>
 
   <!-- Vendor JS Files -->
