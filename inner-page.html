@@ -63,16 +63,16 @@
         <div class="section-title">
           <span>Product Page</span>
           <h2>Products</h2>
-          <p>Experience shopping made simple with our uniquely user-friendly platform</p>
+          <p class="font-size-element">Experience shopping made simple with our uniquely user-friendly platform</p>
         </div>
 
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-elec">Electronics</li>
-              <li data-filter=".filter-cloth">Clothes</li>
-              <li data-filter=".filter-sport">Sports</li>
+              <li class="font-size-element" data-filter="*" class="filter-active">All</li>
+              <li class="font-size-element" data-filter=".filter-elec">Electronics</li>
+              <li class="font-size-element" data-filter=".filter-cloth">Clothes</li>
+              <li class="font-size-element" data-filter=".filter-sport">Sports</li>
             </ul>
           </div>
         </div>
@@ -339,7 +339,7 @@
             <h2>Product Details</h2>
             <ol>
               <li><a href="index.html">Home</a></li>
-              <li>Product Details</li>
+              <li class="font-size-element">Product Details</li>
             </ol>
           </div>
   
@@ -378,9 +378,9 @@
                 <h2 id="productName"></h2>
                 <ul>
                   <!-- <li><strong>Category</strong>: design</li> -->
-                  <li><strong>Client</strong>: Navigo Company</li>
-                  <li><strong>Product date</strong>: 24 March, 2024</li>
-                  <li><strong>Status</strong>: Available</li>
+                  <li class="font-size-element"><strong>Client</strong>: Navigo Company</li>
+                  <li class="font-size-element"><strong>Product date</strong>: 24 March, 2024</li>
+                  <li class="font-size-element"><strong>Status</strong>: Available</li>
                 </ul>
               </div>
               <form method="post"> <!-- Change the form action to your purchase processing page -->
@@ -392,7 +392,7 @@
               <div class="portfolio-description">
 
                 <h2>Product Details</h2>
-                <p id="productDescriptionMore">
+                <p class="font-size-element" id="productDescriptionMore">
                   Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
                 </p>
               </div>
@@ -621,6 +621,17 @@ function updatePrice() {
             page2.style.display = 'none'
             page1.style.display = 'block' 
     }
+
+    var FontSizeElements = document.querySelectorAll('.font-size-element');
+    let savedSize = localStorage.getItem("fontSize");
+                  console.log(savedSize)
+                  if (savedSize) {
+                    FontSizeElements.forEach(function (element) {
+                    element.style.fontSize = savedSize;
+                    element.style.lineHeight = savedSize;
+                     });
+                  }
+    
   </script>
 
   <!-- Vendor JS Files -->
