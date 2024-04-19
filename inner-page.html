@@ -114,7 +114,7 @@
                     <p  style="color: aliceblue;font-size: 30px;"class="price">$49.99</p>
                     <!-- Additional information like product description, ratings, etc. can be added here -->
                     <div style="align-content: center;" class="product-actions">
-                        <a  href="#"  title="View Product"><i class="bx bx-cart-add"></i></a>
+                        <a onclick="gotoCartPage();addCurrentCartId(1)" style="cursor: pointer; color: rgb(77, 238, 99);"  title="add to cart"><i class="bx bx-cart-add"></i></a>
                         <a onclick="changepage(1)" class="details-link"><button class="btn btn-success" >Buy Now</button></a>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                 <h4 style="color: aliceblue;">Leather Football</h4>
                 <p style="font-size: 30px;"class="price">$30.00</p>
                 <div class="product-actions">
-                  <a href="assets/img/portfolio/portfolio2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-cart-add"></i></a>
+                  <a  href="assets/img/portfolio/portfolio2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-cart-add"></i></a>
                   <a onclick="changepage(2)" class="details-link"><button class="btn btn-success" >Buy Now</button></a>
                 </div>
               </div>
@@ -432,6 +432,24 @@
   <!-- ================================================================================================================================= -->
 
   <section id="cart-section" style="display: none">
+
+    <div style="margin-top: 1000px;" class="container mt-5">
+      <h1 class="text-center mb-4">Shopping Cart</h1>
+      <div id="cartItems">
+        <p>Cart is Currently Empty...</p>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mb-4">Cart Summary</h5>
+            <hr>
+            <p class="mb-1">Total Items: <span id="totalItems" class="fw-bold">0</span></p>
+            <p class="mb-4">Total Price: <span id="totalPrice" class="fw-bold">$0.00</span></p>
+            <button class="btn btn-primary btn-block" onclick="checkout()">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
     
   
   </section>
@@ -495,21 +513,18 @@
               description: "Elevate your style with this classic Men's Printed Round Neck Pure Cotton Black T-Shirt. Crafted for comfort and designed to make a statement, this timeless piece is a must-have for every wardrobe.",
               price: "$49.99",
               image1: "assets/img/portfolio/portfolio1.jpg",
-              set: ""
             },
             2:{
               title: "Leather Football",
               description: "Unleash your skills on the field with the MAYOR Sammy-3 Football. Made from high-quality leather and designed for optimal performance, this football ensures precision and durability in every game.",
               price: "$30.00",
               image1: "assets/img/portfolio/portfolio2.jpg",
-              set: ""
             },
             3:{
               title: "Cricket Bat",
               description: "Dominate the cricket pitch with the CEAT Poplar Willow Cricket Bat. Handcrafted for power and precision, this bat delivers exceptional performance and responsiveness, making it the perfect choice for every aspiring cricketer.",
               price: "$19.89",
               image1: "assets/img/portfolio/portfolio3.jpg",
-              set: ""
             },
             4:{
               title: "Black Sunglasses",
@@ -622,6 +637,7 @@ function updatePrice() {
             page1.style.display = 'block' 
     }
 
+    // text increase script
     var FontSizeElements = document.querySelectorAll('.font-size-element');
     let savedSize = localStorage.getItem("fontSize");
                   console.log(savedSize)
@@ -631,8 +647,155 @@ function updatePrice() {
                     element.style.lineHeight = savedSize;
                      });
                   }
+    // cart page change
+    function gotoCartPage()
+    {
+      let page2 = document.getElementById("productDescripton-section")
+      let page1 = document.getElementById("product-page-real")
+      let page3 = document.getElementById("cart-section")
+      page2.style.display = 'none'
+      page1.style.display = 'none'
+      page3.style.display = 'block'
+
+      globalid = btnid
+    }
+    </script>
     
-  </script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getFirestore, collection, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+      import {getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
+
+      // Firebase configuration
+      const firebaseConfig = {
+          apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
+          authDomain: "miniproject-740e2.firebaseapp.com",
+          projectId: "miniproject-740e2",
+          storageBucket: "miniproject-740e2.appspot.com",
+          messagingSenderId: "493659960891",
+          appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
+          measurementId: "G-49BHFJDWQD",
+          databaseURL: "https://miniproject-740e2-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+
+ 
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        let currentlyAddedProduct = 0
+
+        function addCurrentCartId(btnid)
+        {
+          currentlyAddedProduct = btnid
+          console.log(currentlyAddedProduct)
+        }
+
+        function addToCart(item) {
+            // Add a new document with a generated ID to the "cart" collection
+            return addDoc(collection(db, "cart"), item)
+                .then((docRef) => {
+                    console.log("Document written with ID: ", docRef.id);
+                    return docRef.id; // Return the ID of the newly added document
+                })
+                .catch((error) => {
+                    console.error("Error adding document: ", error);
+                    return null; // Return null if there's an error
+                });
+        }
+
+        // Example usage:
+        const newItem = {
+            name: productDetailsArray[currentlyAddedProduct].name,
+            price: productDetailsArray[currentlyAddedProduct].price,
+            quantity: 1
+        };
+
+        addToCart(newItem)
+            .then((docId) => {
+                if (docId) {
+                    console.log(`Item added to cart with ID: ${docId}`);
+                } else {
+                    console.log("Failed to add item to cart.");
+                }
+            });
+
+//  function fetchCartData(user) {
+//     const cartItemsContainer = document.getElementById('cartItems');
+//     const totalItemsElement = document.getElementById('totalItems');
+//     const totalPriceElement = document.getElementById('totalPrice');
+
+//     // Fetch cart data from Firestore
+//     db.collection('cart').doc(user.uid).get().then((doc) => {
+//       if (doc.exists) {
+//         const cartData = doc.data();
+//         // Clear previous cart items
+//         cartItemsContainer.innerHTML = '';
+
+//         let totalItems = 0;
+//         let totalPrice = 0;
+
+//         // Iterate over cart items and generate HTML
+//         cartData.items.forEach((item) => {
+//           const cartItemHtml = `
+//             <div class="col-md-8">
+//               <div class="cart-item">
+//                 <div class="row align-items-center">
+//                   <div class="col-md-3">
+//                     // <img src="${item.image}" alt="Item Image" class="img-fluid">
+//                   </div>
+//                   <div class="col-md-6">
+//                     <h5 class="mb-0">${item.name}</h5>
+//                     // <p class="mb-1">${item.description}</p>
+//                     <p class="mb-0">Price: $${item.price.toFixed(2)}</p>
+//                   </div>
+//                   <div class="col-md-3">
+//                     <div class="d-flex justify-content-end align-items-center">
+//                       <button class="btn btn-sm btn-danger me-2" onclick="removeItemFromCart('${item.id}')"><i class="bi bi-trash"></i></button>
+//                       <input type="number" class="form-control form-control-sm quantity-input" value="${item.quantity}" min="1" onchange="updateItemQuantity('${item.id}', this.value)">
+//                     </div>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           `;
+//           cartItemsContainer.innerHTML += cartItemHtml;
+
+//           // Update total items and total price
+//           totalItems += item.quantity;
+//           totalPrice += item.price * item.quantity;
+//         });
+
+//         // Update total items and total price in UI
+//         totalItemsElement.textContent = totalItems;
+//         totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+//       }
+//     }).catch((error) => {
+//       console.error('Error fetching cart data:', error);
+//     });
+//   }
+
+
+ // Function to add an item to the cart
+ function displayCart(user) {
+       fetchCartData(user)
+     }
+
+ function cart()
+ {
+    auth.onAuthStateChanged(user => {
+        if (user) {
+          displayCart(user);
+        } else {
+            console.log("Not Logged In")
+        }
+     })
+     
+ }
+   
+
+    </script>
+  
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>

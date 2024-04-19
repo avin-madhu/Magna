@@ -56,23 +56,7 @@
     </div>
   </header><!-- End Header -->
 
-  <div style="margin-top: 1000px;" class="container mt-5">
-    <h1 class="text-center mb-4">Shopping Cart</h1>
-    <div id="cartItems">
-      <p>Cart is Currently Empty...</p>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title mb-4">Cart Summary</h5>
-          <hr>
-          <p class="mb-1">Total Items: <span id="totalItems" class="fw-bold">0</span></p>
-          <p class="mb-4">Total Price: <span id="totalPrice" class="fw-bold">$0.00</span></p>
-          <button class="btn btn-primary btn-block" onclick="checkout()">Checkout</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
  
 
@@ -96,101 +80,7 @@
 </body>
 
 <script>
- import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
- import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
- import {getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
-
- // Firebase configuration
- const firebaseConfig = {
-     apiKey: "AIzaSyAbzDGgeZCaiq-dmWQNqnpq_yi6KLyn_Q0",
-     authDomain: "miniproject-740e2.firebaseapp.com",
-     projectId: "miniproject-740e2",
-     storageBucket: "miniproject-740e2.appspot.com",
-     messagingSenderId: "493659960891",
-     appId: "1:493659960891:web:d8908059f91a37a6bc8e1e",
-     measurementId: "G-49BHFJDWQD",
-     databaseURL: "https://miniproject-740e2-default-rtdb.asia-southeast1.firebasedatabase.app/"
-   };
-
  
- // Initialize Firebase app
- const app = initializeApp(firebaseConfig);
- const auth = getAuth(app)
- const db = getFirestore(app)
-
-
- function fetchCartData(user) {
-    const cartItemsContainer = document.getElementById('cartItems');
-    const totalItemsElement = document.getElementById('totalItems');
-    const totalPriceElement = document.getElementById('totalPrice');
-
-    // Fetch cart data from Firestore
-    db.collection('cart').doc(user.uid).get().then((doc) => {
-      if (doc.exists) {
-        const cartData = doc.data();
-        // Clear previous cart items
-        cartItemsContainer.innerHTML = '';
-
-        let totalItems = 0;
-        let totalPrice = 0;
-
-        // Iterate over cart items and generate HTML
-        cartData.items.forEach((item) => {
-          const cartItemHtml = `
-            <div class="col-md-8">
-              <div class="cart-item">
-                <div class="row align-items-center">
-                  <div class="col-md-3">
-                    // <img src="${item.image}" alt="Item Image" class="img-fluid">
-                  </div>
-                  <div class="col-md-6">
-                    <h5 class="mb-0">${item.name}</h5>
-                    // <p class="mb-1">${item.description}</p>
-                    <p class="mb-0">Price: $${item.price.toFixed(2)}</p>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="d-flex justify-content-end align-items-center">
-                      <button class="btn btn-sm btn-danger me-2" onclick="removeItemFromCart('${item.id}')"><i class="bi bi-trash"></i></button>
-                      <input type="number" class="form-control form-control-sm quantity-input" value="${item.quantity}" min="1" onchange="updateItemQuantity('${item.id}', this.value)">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          cartItemsContainer.innerHTML += cartItemHtml;
-
-          // Update total items and total price
-          totalItems += item.quantity;
-          totalPrice += item.price * item.quantity;
-        });
-
-        // Update total items and total price in UI
-        totalItemsElement.textContent = totalItems;
-        totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
-      }
-    }).catch((error) => {
-      console.error('Error fetching cart data:', error);
-    });
-  }
-
-
- // Function to add an item to the cart
- function displayCart(user) {
-       fetchCartData(user)
-     }
-
- function cart()
- {
-    auth.onAuthStateChanged(user => {
-        if (user) {
-          displayCart(user);
-        } else {
-            console.log("Not Logged In")
-        }
-     })
-     
- }
 </script>
 
 </html>
