@@ -430,23 +430,45 @@
 
   <section id="cart-section" style="display: none">
 
-    <div style="margin-top: 1000px;" class="container mt-5">
-      <h1 class="text-center mb-4">Shopping Cart</h1>
-      <div id="cartItems">
-        <p>Cart is Currently Empty...</p>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title mb-4">Cart Summary</h5>
-            <hr>
-            <p class="mb-1">Total Items: <span id="totalItems" class="fw-bold">0</span></p>
-            <p class="mb-4">Total Price: <span id="totalPrice" class="fw-bold">$0.00</span></p>
-            <button class="btn btn-primary btn-block" onclick="checkout()">Checkout</button>
+    <section id="cart-section">
+      <div style=" position: absolute;width: 100%;margin-left: 5%; top:5%;bottom: 100px;" class="container mt-5">
+          <!-- Cart Summary (fixed top) -->
+          <div style="width: 50%; position:absolute;top: 100px;">
+              <div class="card">
+                  <div class="card-body">
+                      <h5 style="font-size: 40px" class="card-title mb-4">Cart Summary</h5>
+                      <hr>
+                      <p style="font-size: 25px;" class="mb-1">Total Items: <span id="totalItems" class="fw-bold">0</span></p>
+                      <p style="font-size: 25px;"  class="mb-4">Total Price: <span id="totalPrice" class="fw-bold">$0.00</span></p>
+                      <button class="btn btn-primary btn-block" onclick="checkout()">Checkout</button>
+                  </div>
+              </div>
           </div>
-        </div>
+          <!-- Product Cards -->
+          <div  style="position: absolute;top: 350px;bottom: 20px;margin-bottom: 30px;" id="product-cards" class="mt-5">
+              <!-- Product cards will be dynamically added here -->
+          </div>
+          
       </div>
-    </div>
+      <br><br><br>
+  </section>
+  
+
+
+    <style>
+
+.cart-summary {
+    width: 300px; /* Adjust width as needed */
+    top: 90px;
+    right: 10px;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.card-container {
+    margin-top: 120px; /* Adjust margin to leave space for cart summary */
+}
+
+    </style>
 
     <script>
         window.currentlyAddedProduct = 1
@@ -465,7 +487,7 @@
 
   <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-      import { getFirestore, collection, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+      import { getFirestore, collection, addDoc, setDoc,getDocs ,query, where} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
       import {getAuth} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
 
       // Firebase configuration
@@ -543,87 +565,97 @@
               description: "Elevate your style with this classic Men's Printed Round Neck Pure Cotton Black T-Shirt. Crafted for comfort and designed to make a statement, this timeless piece is a must-have for every wardrobe.",
               price: "$49.99",
               image1: "assets/img/portfolio/portfolio1.jpg",
+              productId: 1000,
             },
             2:{
               title: "Leather Football",
               description: "Unleash your skills on the field with the MAYOR Sammy-3 Football. Made from high-quality leather and designed for optimal performance, this football ensures precision and durability in every game.",
               price: "$30.00",
               image1: "assets/img/portfolio/portfolio2.jpg",
+              productId: 1200,
             },
             3:{
               title: "Cricket Bat",
               description: "Dominate the cricket pitch with the CEAT Poplar Willow Cricket Bat. Handcrafted for power and precision, this bat delivers exceptional performance and responsiveness, making it the perfect choice for every aspiring cricketer.",
               price: "$19.89",
               image1: "assets/img/portfolio/portfolio3.jpg",
+              productId: 1300,
             },
             4:{
               title: "Black Sunglasses",
               description: "Stay cool and stylish with these RAYBAN Aviator Sunglasses. Featuring UV protection and a timeless design, these sunglasses are the perfect blend of fashion and function for both men and women.",
               price: "$14.49",
-              image1: "assets/img/portfolio/portfolio-4.jpg"
+              image1: "assets/img/portfolio/portfolio-4.jpg",
+              productId: 1400,
             },
             5:{
               title: "Swing Arm Desk Lamp",
               description: "Illuminate your workspace with the Ziggy Flexible Wooden LED Desk Lamp. With its adjustable swing arm and touch-sensitive controls, this lamp provides versatile lighting options for study, reading, or relaxing.",
               price: "$65.00",
-              image1: "assets/img/portfolio/portfolio-5.jpg"
+              image1: "assets/img/portfolio/portfolio-5.jpg",
+              productId: 1500,
             },
             6:{
               title: "Wireless Headphones (Black)",
               description: "Immerse yourself in your favorite music with the JBL Tune 770NC Wireless Headphones. Featuring active noise cancellation and a long battery life, these headphones deliver superior sound quality and comfort for an unparalleled listening experience.",
               price: "$89.99",
-              image1: "assets/img/portfolio/portfolio6.jpg"
+              image1: "assets/img/portfolio/portfolio6.jpg",
+              productId: 1600,
             },
             7:{
               title: "Cricket Helmet",
               description: "Stay protected on the cricket field with the MOONWALKR Cricket Helmet. Designed for players aged 11 and above, this helmet features a detachable grill for added convenience and safety.",
               price: "$149.99",
-              image1: "assets/img/portfolio/portfolio8.jpg"
+              image1: "assets/img/portfolio/portfolio8.jpg",
+              productId: 1700,
             },
             8:{
               title: "EX Macro Lens",
               description: "Capture stunning close-up shots with the SONY SEL90M28G Macro Zoom Lens. Whether you're photographing nature, food, or intricate details, this lens delivers exceptional image quality and clarity.",
               price: "$249.99",
-              image1: "assets/img/portfolio/portfolio-7.jpg"
+              image1: "assets/img/portfolio/portfolio-7.jpg",
+              productId: 1800,
             },
             9:{
               title: "Puffer Jacket (Yellow)",
               description: "Stay warm and stylish in the colder months with this Men's Colorblock Puffer Jacket. Featuring a vibrant yellow hue and a cozy design, this jacket is perfect for outdoor adventures or casual outings.",
               price: "$35.00",
-              image1: "assets/img/portfolio/portfolio9.jpg"
+              image1: "assets/img/portfolio/portfolio9.jpg",
+              productId: 1900,
             },
             10:{
               title: "Water Bottle",
               description: "Stay hydrated on the go with the MILTON Handy 650 Stainless Steel Water Bottle. Designed for durability and convenience, this bottle is perfect for workouts, travel, or everyday use.",
               price: "$100.00",
-              image1: "assets/img/portfolio/bottle.jpg"
+              image1: "assets/img/portfolio/bottle.jpg",
+              productId: 11000,
             },
             11:{
               title: "Men's Watch",
               description: "Upgrade your wrist game with this Matte Black Dial Analog Watch. Featuring a minimalistic design and premium craftsmanship, this watch is both stylish and functional, making it the perfect accessory for any occasion.",
               price: "$240.00",
-              image1: "assets/img/portfolio/watch.jpg"
+              image1: "assets/img/portfolio/watch.jpg",
+              productId: 1110,
             },
             12:{
               title: "Night Light",
               description: "Add a warm glow to any room with the QERINKLE LED Sensor Plug Night Lamp. With its compact size and soft orange light, this night light is perfect for bedrooms, offices, or living rooms.",
               price: "$150.00",
-              image1: "assets/img/portfolio/night light.jpg"
+              image1: "assets/img/portfolio/night light.jpg",
+              productId: 1130,
             },
             13:{
               title: "Blazer (Women)",
               description: "Make a bold statement with this Women's Solid Formal Blazer in striking red. Whether you're heading to the office or a special event, this blazer adds a touch of sophistication and elegance to any outfit.",
               price: "$50.00",
-              image1: "assets/img/portfolio/blazer.jpg"
+              image1: "assets/img/portfolio/blazer.jpg",
+              productId: 1140,
             }
           }
 
 
     let globalid = 0
-
-    function changepage(btnid){
-
-      
+    window.changepage = function(btnid) {
       let page2 = document.getElementById("productDescripton-section")
       let page1 = document.getElementById("product-page-real")
       page2.style.display = 'block'
@@ -659,12 +691,15 @@ function updatePrice() {
        } 
 
 
-    function goBackToProductPage()
+    window.goBackToProductPage = function()
     {
             let page2 = document.getElementById("productDescripton-section")
             let page1 = document.getElementById("product-page-real")
             page2.style.display = 'none'
             page1.style.display = 'block' 
+            // Stop any ongoing speech synthesis
+            speechSynthesis.cancel();
+
     }
 
     // text increase script
@@ -678,7 +713,27 @@ function updatePrice() {
                      });
                 }
 
+          
+
     window.addToCartIfNeeded = function(correctId) {
+
+
+      function updateCartSummary(cartItems) {
+            const totalItemsElement = document.getElementById("totalItems");
+            const totalPriceElement = document.getElementById("totalPrice");
+
+            // Calculate total items and total price
+            let totalItems = 0;
+            let totalPrice = 0;
+            cartItems.forEach((item) => {
+                totalItems++;
+                totalPrice += parseFloat(item.price);
+            });
+
+            // Update cart summary elements
+            totalItemsElement.textContent = totalItems;
+            totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+        }
         
           function addToCart(item) {
             // Add a new document with a generated ID to the "cart" collection
@@ -693,39 +748,166 @@ function updatePrice() {
                 });
         }
         console.log("bro: "+ correctId)
-        var newItem = {
-            // name: productDetailsArray[window.currentlyAddedProduct].title,
-            // price: productDetailsArray[window.currentlyAddedProduct].price,
-            // description: productDetailsArray[window.currentlyAddedProduct].description,
-        };
+        var newItem = {  };
+
+             // Function to fetch cart items for a specific user
+             function fetchCartItems(userId) {
+                    const cartItems = []; // Array to store cart items
+
+                    const Cartquery = query(collection(db, "cart"), where("user", "==", userId));
+
+                    // Execute the query
+                    return getDocs(Cartquery)
+                      .then((querySnapshot) => {
+                        // Loop through the query results
+                        querySnapshot.forEach((doc) => {
+                          // Get the data of each document and push it to the cartItems array
+                          cartItems.push(doc.data());
+                        });
+                        return cartItems; 
+                      })
+                      .catch((error) => {
+                        console.error("Error fetching cart items: ", error);
+                        return []; // Return an empty array if there's an error
+                      });
+                  }
+
         
-        auth.onAuthStateChanged(user => {
-              if (user) {
+        auth.onAuthStateChanged(async user => {
+              if (user)
+       {
                   console.log(user.uid)
                   var newItem = {
                         name: productDetailsArray[window.currentlyAddedProduct].title,
                         price: productDetailsArray[window.currentlyAddedProduct].price,
                         description: productDetailsArray[window.currentlyAddedProduct].description,
+                        productId: productDetailsArray[window.currentlyAddedProduct].productId,
+                        image: productDetailsArray[window.currentlyAddedProduct].image1,
                         user: user.uid,
                     };
 
-                    addToCart(newItem)
+                    const ProductexistsQuery = query(collection(db, "cart"), where("user", "==", user.uid), where("productId", "==", productDetailsArray[window.currentlyAddedProduct].productId));
+                    
+                    const ProductexistsSnapshot = await getDocs(ProductexistsQuery);
+                    const productExists = !ProductexistsSnapshot.empty;
+
+                    if (productExists) {
+                        console.log("Product already exists in the cart");
+                    }
+                    else
+                    {
+                      addToCart(newItem)
                     .then((docId) => {
                         if (docId) {
                             console.log(`Item added to cart with ID: ${docId}`);
                         } else {
                             console.log("Failed to add item to cart.");
-                        }
-
-
-                        
-            });
-              } else {
-                  console.log("Not Logged In")
+                        }    
+                      });
               }
-          })
-        }  
-      
+              const userId = user.uid; 
+              const cartItemsContainer = document.getElementById("product-cards");         
+              fetchCartItems(userId)
+                                    .then((cartItems) => {
+                          // Clear existing content
+                          cartItemsContainer.innerHTML = '';
+
+                          // Create a row to contain the cart items
+                          const row = document.createElement("div");
+                          row.classList.add("row", "row-cols-1", "row-cols-md-2", "g-4");
+                          // Loop through the cart items and append them to the container
+                          cartItems.forEach((item) => {
+                              
+                              // Create a column for each cart item
+                              const col = document.createElement("div");
+                              col.classList.add("col");
+                              
+
+                              // Create a card for the cart item
+                              const card = document.createElement("div");
+                              card.classList.add("card", "h-100");
+                              
+
+                              // Construct the card body with item details
+                              const cardBody = document.createElement("div");
+                              cardBody.classList.add("card-body");
+                              const img = document.createElement("img");
+                              img.src = item.imageUrl; // Replace with the actual image URL from your data
+                              img.alt = item.name; // Provide a brief description of the image
+                              img.classList.add("img-fluid", "mb-3"); // Add Bootstrap classes for responsive image and margin bottom
+
+                              // Append the image to the card body
+                              cardBody.appendChild(img);
+
+                              // Add item details to the card body
+                              cardBody.innerHTML = `
+                                  <h5 class="card-title">${item.name}</h5> 
+                                  <img style="object-fit: contain;height:100px;width:100px;" src="${item.image}"> 
+                                  <p  class="card-text"><strong>Price: ${item.price}</strong></p>
+                                  <p class="card-text">Description: ${item.description}</p>
+                              `;
+
+                              // Add a delete button
+                              const deleteButton = document.createElement("button");
+                              deleteButton.classList.add("btn", "btn-danger", "btn-sm");
+                              deleteButton.innerText = "Remove";
+                              deleteButton.addEventListener("click", () => {
+                                  // Call a function to delete the item from the cart
+                                  deleteCartItem(item.productId); // Assuming there's an 'id' field in the item object
+                              });
+
+                              // Append the delete button to the card body
+                              cardBody.appendChild(deleteButton);
+
+                              // Append the card body to the card
+                              card.appendChild(cardBody);
+
+                              // Append the card to the column
+                              col.appendChild(card);
+
+                              // Append the column to the row
+                              row.appendChild(col);
+                          });
+
+                          // Append the row to the container
+                          cartItemsContainer.appendChild(row);
+
+
+                          function getCartItemCount(userId) {
+                          // Reference to the "cart" collection for the specific user
+                          const cartCollectionRef = collection(db, "cart");
+
+                          // Query documents in the "cart" collection for the specific user
+                          const userCartQuery = query(cartCollectionRef, where("user", "==", userId));
+
+                          // Get all documents in the "cart" collection for the specific user
+                          return getDocs(userCartQuery)
+                              .then((querySnapshot) => {
+                                  // Return the number of documents in the collection for the specific user
+                                  return querySnapshot.size;
+                              })
+                              .catch((error) => {
+                                  console.error("Error getting cart items: ", error);
+                                  return 0; // Return 0 if there's an error
+                              });
+                      }
+
+                      // Example usage:
+                      const userId = user.uid; 
+                      getCartItemCount(userId).then((count) => {
+                          document.getElementById("totalItems").textContent = count;
+                      });
+
+
+                      })
+                    .catch((error) => {
+                      console.error("Error fetching cart items: ", error);
+                    });            
+         } else {
+                            console.log("Not Logged In")
+                        }
+                    })
+                  }               
     </script>
     <script>
       function gotoCartPage()
@@ -739,86 +921,6 @@ function updatePrice() {
 
         }
     </script>
-    
-
-    <script>
-        
-//  function fetchCartData(user) {
-//     const cartItemsContainer = document.getElementById('cartItems');
-//     const totalItemsElement = document.getElementById('totalItems');
-//     const totalPriceElement = document.getElementById('totalPrice');
-
-//     // Fetch cart data from Firestore
-//     db.collection('cart').doc(user.uid).get().then((doc) => {
-//       if (doc.exists) {
-//         const cartData = doc.data();
-//         // Clear previous cart items
-//         cartItemsContainer.innerHTML = '';
-
-//         let totalItems = 0;
-//         let totalPrice = 0;
-
-//         // Iterate over cart items and generate HTML
-//         cartData.items.forEach((item) => {
-//           const cartItemHtml = `
-//             <div class="col-md-8">
-//               <div class="cart-item">
-//                 <div class="row align-items-center">
-//                   <div class="col-md-3">
-//                     // <img src="${item.image}" alt="Item Image" class="img-fluid">
-//                   </div>
-//                   <div class="col-md-6">
-//                     <h5 class="mb-0">${item.name}</h5>
-//                     // <p class="mb-1">${item.description}</p>
-//                     <p class="mb-0">Price: $${item.price.toFixed(2)}</p>
-//                   </div>
-//                   <div class="col-md-3">
-//                     <div class="d-flex justify-content-end align-items-center">
-//                       <button class="btn btn-sm btn-danger me-2" onclick="removeItemFromCart('${item.id}')"><i class="bi bi-trash"></i></button>
-//                       <input type="number" class="form-control form-control-sm quantity-input" value="${item.quantity}" min="1" onchange="updateItemQuantity('${item.id}', this.value)">
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           `;
-//           cartItemsContainer.innerHTML += cartItemHtml;
-
-//           // Update total items and total price
-//           totalItems += item.quantity;
-//           totalPrice += item.price * item.quantity;
-//         });
-
-//         // Update total items and total price in UI
-//         totalItemsElement.textContent = totalItems;
-//         totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
-//       }
-//     }).catch((error) => {
-//       console.error('Error fetching cart data:', error);
-//     });
-//   }
-
-
- // Function to add an item to the cart
- function displayCart(user) {
-       fetchCartData(user)
-     }
-
- function cart()
- {
-    auth.onAuthStateChanged(user => {
-        if (user) {
-          displayCart(user);
-        } else {
-            console.log("Not Logged In")
-        }
-     })
-     
- }
-   
-
-    </script>
-  
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
