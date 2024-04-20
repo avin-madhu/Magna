@@ -509,8 +509,6 @@
       <br><br><br>
     </section>
 
-
-
     <style>
       .cart-summary {
         width: 300px;
@@ -533,6 +531,11 @@
       function addCurrentCartId(btnid) {
         window.currentlyAddedProduct = btnid
         window.addToCartIfNeeded(window.currentlyAddedProduct)
+      }
+
+      function checkout()
+      {
+        alert("Purchased worth of "+window.alltotalprice)
       }
     </script>
 
@@ -783,24 +786,6 @@
 
     window.addToCartIfNeeded = function (correctId) {
 
-
-      function updateCartSummary(cartItems) {
-        const totalItemsElement = document.getElementById("totalItems");
-        const totalPriceElement = document.getElementById("totalPrice");
-
-        // Calculate total items and total price
-        let totalItems = 0;
-        let totalPrice = 0;
-        cartItems.forEach((item) => {
-          totalItems++;
-          totalPrice += parseFloat(item.price);
-        });
-
-        // Update cart summary elements
-        totalItemsElement.textContent = totalItems;
-        totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
-      }
-
       function addToCart(item) {
         // Add a new document with a generated ID to the "cart" collection
         return addDoc(collection(db, "cart"), item)
@@ -887,8 +872,21 @@
               const row = document.createElement("div");
               row.classList.add("row", "row-cols-1", "row-cols-md-5", "g-4");
 
+              let totalPrice = 0;
+                cartItems.forEach((item) => {
+                    totalPrice += parseFloat(item.price.replace("$",""));
+                });
+
+              const totalPriceElement = document.getElementById("totalPrice");
+              totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+              window.alltotalprice = "$" + totalPrice.toFixed(2);
               // Loop through the cart items and append them to the container
               cartItems.forEach((item) => {
+
+                // Display total price in the cart page
+                
+
+
                 // Create a column for each cart item
                 const col = document.createElement("div");
                 col.classList.add("col");
