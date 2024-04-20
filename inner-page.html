@@ -445,10 +445,10 @@
               </div>
           </div>
           <!-- Product Cards -->
-          <div  style="position: absolute;top: 350px;bottom: 20px;margin-bottom: 30px;" id="product-cards" class="mt-5">
+          <div  style="align-items:center;position:absolute;top: 350px;bottom:20px;margin-bottom: 30px;" id="product-cards" class="mt-5">
               <!-- Product cards will be dynamically added here -->
           </div>
-          
+         
       </div>
       <br><br><br>
   </section>
@@ -693,10 +693,24 @@ function updatePrice() {
 
     window.goBackToProductPage = function()
     {
-            let page2 = document.getElementById("productDescripton-section")
-            let page1 = document.getElementById("product-page-real")
+          let page2 = document.getElementById("productDescripton-section")
+          let page1 = document.getElementById("product-page-real")
+          let page3 = document.getElementById("cart-section")
+
+          if(page2.style.display == 'block')
+          {
             page2.style.display = 'none'
-            page1.style.display = 'block' 
+            page1.style.display = 'block'
+            page3.style.display = 'none'
+          }
+          else if(page3.style.display == 'block')
+          {
+            page2.style.display = 'none'
+            page1.style.display = 'block'
+            page3.style.display = 'none'
+          }
+
+          
             // Stop any ongoing speech synthesis
             speechSynthesis.cancel();
 
@@ -814,7 +828,7 @@ function updatePrice() {
 
                           // Create a row to contain the cart items
                           const row = document.createElement("div");
-                          row.classList.add("row", "row-cols-1", "row-cols-md-2", "g-4");
+                          row.classList.add("row", "row-cols-1", "row-cols-md-5", "g-4");
                           // Loop through the cart items and append them to the container
                           cartItems.forEach((item) => {
                               
@@ -844,7 +858,6 @@ function updatePrice() {
                                   <h5 class="card-title">${item.name}</h5> 
                                   <img style="object-fit: contain;height:100px;width:100px;" src="${item.image}"> 
                                   <p  class="card-text"><strong>Price: ${item.price}</strong></p>
-                                  <p class="card-text">Description: ${item.description}</p>
                               `;
 
                               // Add a delete button
