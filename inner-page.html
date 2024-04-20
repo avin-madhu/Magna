@@ -44,11 +44,33 @@
           <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
           <!-- <li class="dropdown"><a href="#"><span>Settings</span></a></li> -->
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><a href="cart.html"><i style="font-size: 20px;margin-left: 25px;color: #5f687b;" class="bx bx-cart"></i></a></li>
+          <li style="cursor: pointer;" onclick="gotoCartPage()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <a>
+                <i style="font-size: 20px; margin-left: 25px; color: #5f687b;" class="bx bx-cart"></i>
+                <span id="cartCount" class="cart-count">0</span>
+            </a>
+        </li>
+        
           <li id="logged-in" id="cartButton" style="display: none;" ><a id="logout" class="nav-link scrollto" href="#">LogOut</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+
+      <style>
+        .cart-count {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background-color: #ff0000;
+    color: #fff;
+    width: 25px;
+    text-align: center;
+    border-radius: 40%;
+    padding: 5px;
+    font-size: 12px;
+}
+
+      </style>
     
     </div>
   </header><!-- End Header -->
@@ -907,8 +929,10 @@ function updatePrice() {
 
                       // Example usage:
                       const userId = user.uid; 
+                      var cartCountElement = document.getElementById("cartCount");
                       getCartItemCount(userId).then((count) => {
                           document.getElementById("totalItems").textContent = count;
+                          cartCountElement.textContent = count;
                       });
 
 
