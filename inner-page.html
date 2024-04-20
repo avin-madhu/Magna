@@ -66,9 +66,7 @@
     
 
       <style>
-        .nav-link{
-          
-        }
+        
         .cart-count {
           position: absolute;
           top: 5px;
@@ -966,7 +964,11 @@
           getCartItemCount(userId).then((count) => {
             document.getElementById("totalItems").textContent = count;
             cartCountElement.textContent = count;
+            window.allcount = count
+            speakText("You have a total of "+window.allcount+"products of total price of "+window.alltotalprice)
           });
+
+          
         } else {
           console.log("Not Logged In");
         }
@@ -974,6 +976,37 @@
     }
 
   </script>
+  <style>
+    /* Media queries for responsive layout */
+@media screen and (max-width: 268px) {
+  .container {
+    width: 90%; /* Adjust container width for smaller screens */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+  }
+
+  .card {
+    width: 100%; /* Make cards full width on smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .card-body {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .row-cols-1 {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+  }
+
+  /* Adjust font sizes for smaller screens */
+  .card-title,
+  .card-text {
+    font-size: 18px;
+  }
+}
+
+  </style>
   <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
   <script>
 
@@ -1093,6 +1126,8 @@
       page2.style.display = 'none'
       page1.style.display = 'none'
       page3.style.display = 'block'
+
+      speakText("You have a total of "+window.allcount+"products of total price of "+window.alltotalprice)
 
     }
   </script>
