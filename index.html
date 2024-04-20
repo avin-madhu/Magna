@@ -6,7 +6,7 @@
 
 
   <title>Magna</title>
-  
+
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -15,7 +15,9 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
@@ -47,19 +49,28 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-            <li><a class="nav-link scrollto active" href="#hero"><i style="font-size: 25px;" class="bi bi-house-door-fill"></i></a></li>
-            <li><a class="nav-link scrollto" href="#about"><i style="font-size: 25px;" class="bi bi-info-circle-fill"></i></a></li>
-            <li><a class="nav-link scrollto" href="#services"><i style="font-size: 25px;" class="bi bi-gear-fill"></i> </a></li>
-            <li class="logged-in" style="display: none;"><a class="nav-link scrollto" href="inner-page.html"><i style="font-size: 25px;" class="bi bi-basket2-fill"></i></a></li>
-            <li><a class="nav-link scrollto" href="#team"><i style="font-size: 25px;" class="bi bi-people-fill"></i> </a></li>
-            <li><a class="nav-link scrollto" href="#contact"><i style="font-size: 25px;" class="bi bi-envelope-fill"></i> </a></li>
-            <li id="loginButton" class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login"><i style="font-size: 25px;" class="bi bi-box-arrow-in-right"></i> </a></li>
-            <li class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#signup-modal"><a class="nav-link scrollto" href="#signup"><i  style="font-size: 25px;" class="bi bi-person-plus-fill"></i> </a></li>
-            <li class="logged-in" style="display: none;"><a id="logout" class="nav-link scrollto" href="#"><i style="font-size: 25px;" class="bi bi-box-arrow-right"></i></a></li>
+          <li><a class="nav-link scrollto active" href="#hero"><i style="font-size: 25px;"
+                class="bi bi-house-door-fill"></i></a></li>
+          <li><a class="nav-link scrollto" href="#about"><i style="font-size: 25px;"
+                class="bi bi-info-circle-fill"></i></a></li>
+          <li><a class="nav-link scrollto" href="#services"><i style="font-size: 25px;" class="bi bi-gear-fill"></i>
+            </a></li>
+          <li><a class="nav-link scrollto" href="#team"><i style="font-size: 25px;" class="bi bi-people-fill"></i> </a>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact"><i style="font-size: 25px;" class="bi bi-envelope-fill"></i>
+            </a></li>
+          <li id="loginButton" class="logged-out" style="display: none;" data-bs-toggle="modal"
+            data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login"><i style="font-size: 25px;"
+                class="bi bi-box-arrow-in-right"></i> </a></li>
+          <li class="logged-out" style="display: none;" data-bs-toggle="modal" data-bs-target="#signup-modal"><a
+              class="nav-link scrollto" href="#signup"><i style="font-size: 25px;" class="bi bi-person-plus-fill"></i>
+            </a></li>
+          <li class="logged-in" style="display: none;"><a id="logout" class="nav-link scrollto" href="#"><i
+                style="font-size: 25px;" class="bi bi-box-arrow-right"></i></a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
-    
+      </nav><!-- .navbar -->
+
 
     </div>
   </header><!-- End Header -->
@@ -72,9 +83,12 @@
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>Shopping with Ease and Elegance</h1>
-          <h2 class="font-size-element" onclick="speakText('We are team of Web Designers making website convenient for the Dyslexic')">We are a team of Web Designers making website convenient for the Dyslexics</h2>
+          <h2 class="font-size-element"
+            onclick="speakText('We are team of Web Designers making website convenient for the Dyslexic')">We are a team
+            of Web Designers making website convenient for the Dyslexics</h2>
           <div class="d-flex">
-          <a style="cursor: pointer;" onclick="routeToProductPage()" class="btn-get-started scrollto">Start Shopping</a>
+            <a style="cursor: pointer;" onclick="routeToProductPage()" class="btn-get-started scrollto">Start
+              Shopping</a>
             <!-- <a href="https://youtu.be/nT20JV1nRZg?si=N98zvLlEozdSO43e" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
           </div>
         </div>
@@ -85,16 +99,16 @@
     </div>
 
     <script>
-  function routeToProductPage() {
-  auth.onAuthStateChanged(user => {
-    if (user) {
-        window.location.href = "inner-page.html";
-    } else {
-        alert('Please Login');
-        setupUI();
-    }
-  })
-}
+      function routeToProductPage() {
+        auth.onAuthStateChanged(user => {
+          if (user) {
+            window.location.href = "inner-page.html";
+          } else {
+            alert('Please Login');
+            setupUI();
+          }
+        })
+      }
     </script>
 
   </section><!-- End Hero -->
@@ -108,34 +122,41 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-laptop"></i></div>
+              <div class="icon"><i class="bi bi-arrows-angle-expand"></i></div>
               <h4 class="title font-size-element"><a href="">Change Font Size</a></h4>
-              <button onpointermove="speakText('increase text size')" id="incSizeBtn" class="btn-font-change sizebuttons" onclick="increaseFontSize()">Increase Text Size</button>
-              <button onpointermove="speakText('decrease text size')" id="decSizeBtn" class="btn-font-change sizebuttons" onclick="decreaseFontSize()">Decrease Text Size</button>
-              
-              <p style="line-height: 30px;" class="description font-size-element">Increase or decrease the size of the textual content of this webpage for better user reading experience.
+              <button onpointermove="speakText('increase text size')" id="incSizeBtn"
+                class="btn-font-change sizebuttons" onclick="increaseFontSize()">Increase Text Size</button>
+              <button onpointermove="speakText('decrease text size')" id="decSizeBtn"
+                class="btn-font-change sizebuttons" onclick="decreaseFontSize()">Decrease Text Size</button>
+
+              <p style="line-height: 30px;" class="description font-size-element">Increase or decrease the size of the
+                textual content of this webpage for better user reading experience.
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-card-checklist"></i></div>
               <h4 class="title font-size-element"><a href="">Change Font Style</a></h4>
-              <button onpointermove="speakText('change font style')" class="btn-font-change sizebuttons" onclick="changeFontStyle()">Change Font Style</button>
-              <p class="description font-size-element">Change the font style of this webpage by clicking the above button. so that users can be comfortable with their own font selection</p>
+              <button onpointermove="speakText('change font style')" class="btn-font-change sizebuttons"
+                onclick="changeFontStyle()">Change Font Style</button>
+              <p class="description font-size-element">Change the font style of this webpage by clicking the above
+                button. so that users can be comfortable with their own font selection</p>
             </div>
           </div>
-          <!-- <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-              <h4 class="title font-size-element"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description font-size-element">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <div class="icon"><i class="bi bi-mic"></i></div>
+              <h4 class="title font-size-element"><a href="">Annyang Settings</a></h4>
+              <button onclick="annyang.start();speakText('Your are now in listening mode')" id="incSizeBtn" class="btn-font-change sizebuttons">Start Listening</button>
+              <button onclick="annyang.abort();speakText('Your are now in sleep mode')" id="decSizeBtn"class="btn-font-change sizebuttons">Stop Listening</button>
+              <p class="description font-size-element"> You can set the website in listening mode or sleep mode</p>
             </div>
-          </div> -->
+          </div>
         </div>
 
       </div>
     </section><!-- End Featured Services Section -->
-     
+
     <!-- -->
 
     <!-- ======= About Section ======= -->
@@ -154,24 +175,37 @@
             <img src="assets/img/about2.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content">
-                      
+
             <ul>
 
-              <li class="font-size-element" onclick="speakText('Welcome to Magna, where inclusivity reigns. We prioritize dyslexic users with simplified language, customizable fonts, and clear navigation.')"><i class="bi bi-check-circle"></i> Welcome to Magna, where inclusivity reigns. We prioritize dyslexic users with simplified language, customizable fonts, and clear navigation. </li>
-              <li class="font-size-element" onclick="speakText('Our platform fosters accessibility, setting new online shopping standards. We recognize dyslexic challenges and aim to support users with tailored features, ensuring everyone can shop with ease.')"><i class="bi bi-check-circle"></i>Our platform fosters accessibility, setting new online shopping standards. We recognize dyslexia's challenges and aim to support users with tailored features, ensuring everyone can shop with ease.  </li>
-              <li class="font-size-element" onclick="speakText('From intuitive design to thoughtful features, we celebrate diversity and empower all customers to navigate our platform effortlessly.')"><i class="bi bi-check-circle"></i>From intuitive design to thoughtful features, we celebrate diversity and empower all customers to navigate our platform effortlessly.</li>
-              <li class="font-size-element" onclick="speakText('At Magna, we are committed to creating a welcoming environment where everyone feels supported and included, revolutionizing the online shopping experience for individuals with dyslexia.')">At Magna, we're committed to creating a welcoming environment where everyone feels supported and included, revolutionizing the online shopping experience for individuals with dyslexia.</li>
+              <li class="font-size-element"
+                onclick="speakText('Welcome to Magna, where inclusivity reigns. We prioritize dyslexic users with simplified language, customizable fonts, and clear navigation.')">
+                <i class="bi bi-check-circle"></i> Welcome to Magna, where inclusivity reigns. We prioritize dyslexic
+                users with simplified language, customizable fonts, and clear navigation. </li>
+              <li class="font-size-element"
+                onclick="speakText('Our platform fosters accessibility, setting new online shopping standards. We recognize dyslexic challenges and aim to support users with tailored features, ensuring everyone can shop with ease.')">
+                <i class="bi bi-check-circle"></i>Our platform fosters accessibility, setting new online shopping
+                standards. We recognize dyslexia's challenges and aim to support users with tailored features, ensuring
+                everyone can shop with ease. </li>
+              <li class="font-size-element"
+                onclick="speakText('From intuitive design to thoughtful features, we celebrate diversity and empower all customers to navigate our platform effortlessly.')">
+                <i class="bi bi-check-circle"></i>From intuitive design to thoughtful features, we celebrate diversity
+                and empower all customers to navigate our platform effortlessly.</li>
+              <li class="font-size-element"
+                onclick="speakText('At Magna, we are committed to creating a welcoming environment where everyone feels supported and included, revolutionizing the online shopping experience for individuals with dyslexia.')">
+                At Magna, we're committed to creating a welcoming environment where everyone feels supported and
+                included, revolutionizing the online shopping experience for individuals with dyslexia.</li>
             </ul>
-            
-            
-           
+
+
+
           </div>
         </div>
 
       </div>
     </section><!-- End About Section -->
-    
-     <!-- <div class="container">
+
+    <!-- <div class="container">
       <div class="row counters">
   
         <div class="col-lg-3 col-6 text-center">
@@ -191,146 +225,156 @@
       </div>
     </div>
   </div> -->
-</section><!-- End Counts Section -->
+    </section><!-- End Counts Section -->
 
-<!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg">
-  <div class="container">
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
 
-    <div class="section-title">
-      <span>Services</span>
-      <h2>Services</h2>
-      <p>Explore the range of services our website offers.</p>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-        <div class="icon-box">
-          <div class="icon"><i class="bx bx-navigation"></i></div>
-          <h4><a href="">Site Navigation</a></h4>
-          <p class="font-size-element">Voice navigation for smoothly navigating through different sections of the website without having to use the keyboard.</p>
+        <div class="section-title">
+          <span>Services</span>
+          <h2>Services</h2>
+          <p>Explore the range of services our website offers.</p>
         </div>
-      </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-        <div class="icon-box">
-          <div class="icon"><i class="bx bx-pencil"></i></div>
-          <h4><a style="cursor: pointer;" onclick="speakText('Option to increase and decrease the font size based on the users preference. A suitably colour-contrasted layout to enhance readability for individuals with dyslexia.')">Font Customization</a></h4>
-          <p class="font-size-element">Option to increase and decrease the font size based on the user's preference. A suitably colour-contrasted layout to enhance readability for individuals with dyslexia.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-        <div class="icon-box">
-          <div class="icon"><i class="bx bx-cart"></i></div>
-          <h4><a href="">Shopping Cart</a></h4>
-          <p class="font-size-element">Product added to the cart by a specific user is only shown to that user alone. Can add, remove products from cart and proceed to buy from cart.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-        <div class="icon-box">
-          <div class="icon"><i class="bx bx-station"></i></div>
-          <h4><a href="">Voice Assistance</a></h4>
-          <p class="font-size-element">Voice-activated commands for easy navigation to different sections of the website. 
-            .
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-        <div class="icon-box">
-          <div class="icon"><i class="bx bx-user"></i></div>
-          <h4><a href="">User Privacy</a></h4>
-          <p class="font-size-element">Necessary measures are in place using firebase to ensure the protection of user privacy.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-        <div class="icon-box">
-          <div class="icon"><i class="bx bx-layout"></i></div>
-          <h4><a href="">Text to Speech Interface</a></h4>
-          <p class="font-size-element">Clicking on the textual content enables voice assistance, allowing the content to be read out loud for your convenience.
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section><!-- End Services Section -->
-
-
-
-<!-- ======= Team Section ======= -->
-<section id="team" class="team section-bg">
-  <div class="container">
-
-    <div class="section-title">
-      <span>Team</span>
-      <h2>Team</h2>
-      <p class="font-size-element">Presenting to you, in all their glory, the incredible members of our exceptional team!</p>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-        <div class="member">
-          <img src="assets/img/team/team-1.jpg" alt="">
-          <h4>Avin Madhu</h4>
-          
-          
-          <div class="social">
-            <a href="https://mailto:avinmadhu@gmail.com"><i class="bi bi-envelope-fill"></i></a>
-            <a href="https://github.com/avin-madhu"><i class="bi bi-github"></i></a>
-            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-            </svg></a>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-navigation"></i></div>
+              <h4><a href="">Site Navigation</a></h4>
+              <p class="font-size-element">Voice navigation for smoothly navigating through different sections of the
+                website without having to use the keyboard.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-        <div class="member">
-          <img src="assets/img/team/team-2.jpg" alt="">
-          <h4>Amala Gopinath</h4>
-          
-          
-          <div class="social">
-            <a href="https://mailto:amalagopinath999@gmail.com"><i class="bi bi-envelope-fill"></i></a>
-            <a href="https://github.com/Amala-Gopinath"><i class="bi bi-github"></i></a>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-pencil"></i></div>
+              <h4><a style="cursor: pointer;"
+                  onclick="speakText('Option to increase and decrease the font size based on the users preference. A suitably colour-contrasted layout to enhance readability for individuals with dyslexia.')">Font
+                  Customization</a></h4>
+              <p class="font-size-element">Option to increase and decrease the font size based on the user's preference.
+                A suitably colour-contrasted layout to enhance readability for individuals with dyslexia.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-        <div class="member">
-          <img src="assets/img/team/team-3.jpg" alt="">
-          <h4>Nadim Naisam</h4>
-          
-          
-          <div class="social">
-            <a href="https://mailto:nadimvc@gmail.com"><i class="bi bi-envelope-fill"></i></a>
-            <a href="https://github.com/NadimNaisam"><i class="bi bi-github"></i></a>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-cart"></i></div>
+              <h4><a href="">Shopping Cart</a></h4>
+              <p class="font-size-element">Product added to the cart by a specific user is only shown to that user
+                alone. Can add, remove products from cart and proceed to buy from cart.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-        <div class="member">
-          <img src="assets/img/team/team-4.jpg" alt="">
-          <h4>Gopika Chandran A J</h4>
-          
-          
-          <div class="social">
-            <a href="https://mailto:gopikachandranaj@gmail.com"><i class="bi bi-envelope-fill"></i></a>
-            <a href="https://github.com/GopikaChandranAJ"><i class="bi bi-github"></i></a>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-station"></i></div>
+              <h4><a href="">Voice Assistance</a></h4>
+              <p class="font-size-element">Voice-activated commands for easy navigation to different sections of the
+                website.
+                .
+              </p>
+            </div>
           </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-user"></i></div>
+              <h4><a href="">User Privacy</a></h4>
+              <p class="font-size-element">Necessary measures are in place using firebase to ensure the protection of
+                user privacy.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-layout"></i></div>
+              <h4><a href="">Text to Speech Interface</a></h4>
+              <p class="font-size-element">Clicking on the textual content enables voice assistance, allowing the
+                content to be read out loud for your convenience.
+              </p>
+            </div>
+          </div>
+
         </div>
+
       </div>
+    </section><!-- End Services Section -->
 
-    </div>
 
-  </div>
-</section><!-- End Team Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Team</span>
+          <h2>Team</h2>
+          <p class="font-size-element">Presenting to you, in all their glory, the incredible members of our exceptional
+            team!</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/team/team-1.jpg" alt="">
+              <h4>Avin Madhu</h4>
+
+
+              <div class="social">
+                <a href="https://mailto:avinmadhu@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://github.com/avin-madhu"><i class="bi bi-github"></i></a>
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                </svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/team/team-2.jpg" alt="">
+              <h4>Amala Gopinath</h4>
+
+
+              <div class="social">
+                <a href="https://mailto:amalagopinath999@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://github.com/Amala-Gopinath"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/team/team-3.jpg" alt="">
+              <h4>Nadim Naisam</h4>
+
+
+              <div class="social">
+                <a href="https://mailto:nadimvc@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://github.com/NadimNaisam"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/team/team-4.jpg" alt="">
+              <h4>Gopika Chandran A J</h4>
+
+
+              <div class="social">
+                <a href="https://mailto:gopikachandranaj@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://github.com/GopikaChandranAJ"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -364,13 +408,15 @@
                 <p class="font-size-element">+91 7902467901</p>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.1798691608765!2d76.61490531107472!3d9.31732529071744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0622ea027eb08f%3A0x41105b207db821c6!2sCollege%20of%20Engineering%20Chengannur!5e0!3m2!1sen!2sin!4v1713006756272!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.1798691608765!2d76.61490531107472!3d9.31732529071744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0622ea027eb08f%3A0x41105b207db821c6!2sCollege%20of%20Engineering%20Chengannur!5e0!3m2!1sen!2sin!4v1713006756272!5m2!1sen!2sin"
+                frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
             </div>
 
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form  method="post" role="form" class="php-email-form">
+            <form method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -414,8 +460,9 @@
 
         <div class="row  justify-content-center">
           <div class="col-lg-6">
-            <h3>magna</h3>
-            <p class="font-size-element">We aim to provide a better shopping experience for people with dyslexic trait and expand the shopping community.</p>
+            <h3>Magna</h3>
+            <p class="font-size-element">We aim to provide a better shopping experience for people with dyslexic trait
+              and expand the shopping community.</p>
           </div>
         </div>
 
@@ -428,10 +475,14 @@
         </div> -->
 
         <div style="padding: 20px;" class="social-links">
-          <a onpointermove="speakText('visit our twitter account')" href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a onpointermove="speakText('visit our facebook account')"  href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a onpointermove="speakText('visit our instagram account')" href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a onpointermove="speakText('visit our linkedin account')" href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a onpointermove="speakText('visit our twitter account')" href="#" class="twitter"><i
+              class="bx bxl-twitter"></i></a>
+          <a onpointermove="speakText('visit our facebook account')" href="#" class="facebook"><i
+              class="bx bxl-facebook"></i></a>
+          <a onpointermove="speakText('visit our instagram account')" href="#" class="instagram"><i
+              class="bx bxl-instagram"></i></a>
+          <a onpointermove="speakText('visit our linkedin account')" href="#" class="linkedin"><i
+              class="bx bxl-linkedin"></i></a>
         </div>
 
       </div>
@@ -439,7 +490,7 @@
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>magna</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Magna</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         Designed by <a href="#">Team 8</a>
@@ -447,7 +498,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
 
 
@@ -463,10 +515,10 @@
         </div>
         <div class="modal-body">
 
-          <form id="login-form"  class="text-center" class="form-signin">
+          <form id="login-form" class="text-center" class="form-signin">
             <img class="mb-4" src="assets/img/apple-touch-icon.png" alt="" width="170" height="170">
 
-         
+
 
             <h1 class="h3 mb-3 font-weight-normal">Login</h1>
             <br>
@@ -476,7 +528,8 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-            <button id="google-auth-login" class="btn btn-lg btn-danger btn-block" type="button"><i class="bi bi-google"></i>Login with Google</button>
+            <button id="google-auth-login" class="btn btn-lg btn-danger btn-block" type="button"><i
+                class="bi bi-google"></i>Login with Google</button>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
         </div>
@@ -493,12 +546,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="signup-form"  class="text-center" class="form-signin">
+          <form id="signup-form" class="text-center" class="form-signin">
             <img class="mb-4" src="assets/img/favicon.png" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
             <br>
             <input type="email" id="signup-email" class="form-control" placeholder="Email address" required autofocus>
-            <input type="password" id="signup-password" class="form-control" placeholder="Password" required> 
+            <input type="password" id="signup-password" class="form-control" placeholder="Password" required>
             <div class="checkbox mb-3">
               <br>
               <label>
@@ -507,9 +560,11 @@
               <br>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-            <button id="google-auth" class="btn btn-lg btn-danger btn-block"><i class="bi bi-google"></i>Sign in With Google</button>
+            <button id="google-auth" class="btn btn-lg btn-danger btn-block"><i class="bi bi-google"></i>Sign in With
+              Google</button>
             <br>
-            <p style="margin-top: 10px;">Already Have an Account? <a href="#login" data-bs-target="#login-modal" data-bs-toggle="modal">Login</a></p>
+            <p style="margin-top: 10px;">Already Have an Account? <a href="#login" data-bs-target="#login-modal"
+                data-bs-toggle="modal">Login</a></p>
             <p class="mt-5 mb-3 text-muted">&copy; Team 8</p>
           </form>
         </div>
@@ -517,96 +572,96 @@
     </div>
   </div>
 
-  
+
   <script>
 
     let count = 0;
     const incSizeBtn = document.getElementById("incSizeBtn");
     const decSizeBtn = document.getElementById("decSizeBtn");
-    
-    fontArray = [ 'Arial, sans-serif', 'Courier New, monospace', '"Lexend", sans-serif']
-                    var FontStyleElement = document.querySelectorAll('body');
-                    var i = 0;
-                    function changeFontStyle() {
-                    FontStyleElement.forEach(function (element) {
-                    var currentfont = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-family'));
-                    var newFont = fontArray[i]; 
-                    i = (i+1)%fontArray.length;
-                    element.style.fontFamily = newFont;
-                });
-              }
+
+    fontArray = ['Arial, sans-serif', 'Courier New, monospace', '"Lexend", sans-serif']
+    var FontStyleElement = document.querySelectorAll('body');
+    var i = 0;
+    function changeFontStyle() {
+      FontStyleElement.forEach(function (element) {
+        var currentfont = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-family'));
+        var newFont = fontArray[i];
+        i = (i + 1) % fontArray.length;
+        element.style.fontFamily = newFont;
+      });
+    }
 
 
-                var FontSizeElements = document.querySelectorAll('.font-size-element');
+    var FontSizeElements = document.querySelectorAll('.font-size-element');
 
 
-                function increaseFontSize() {
-                  decSizeBtn.disabled = false;
-                  if (count == 4) {
-                      incSizeBtn.disabled = true;
-                    }
-                    count++;  
-                    FontSizeElements.forEach(function (element) {
-                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
-                    var newSize = currentSize + 5; // You can adjust the value as needed
-                    localStorage.setItem("fontSize", newSize + "px");
-                    element.style.fontSize = newSize + 'px';
-                    element.style.lineHeight = newSize + 'px';
-                });
-              }
-                function decreaseFontSize() {
-                  incSizeBtn.disabled = false;
-                  if (count == 1) {
-                      decSizeBtn.disabled = true;
-                    }
-                    count--;
-                FontSizeElements.forEach(function (element) {
-                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
-                    var newSize = currentSize - 5; // You can adjust the value as needed
-                    localStorage.setItem("fontSize", newSize + "px");
-                    element.style.fontSize = newSize + 'px';
-                    element.style.lineHeight = newSize + 'px';
-                });
-              }
+    function increaseFontSize() {
+      decSizeBtn.disabled = false;
+      if (count == 4) {
+        incSizeBtn.disabled = true;
+      }
+      count++;
+      FontSizeElements.forEach(function (element) {
+        var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+        var newSize = currentSize + 5; // You can adjust the value as needed
+        localStorage.setItem("fontSize", newSize + "px");
+        element.style.fontSize = newSize + 'px';
+        element.style.lineHeight = newSize + 'px';
+      });
+    }
+    function decreaseFontSize() {
+      incSizeBtn.disabled = false;
+      if (count == 1) {
+        decSizeBtn.disabled = true;
+      }
+      count--;
+      FontSizeElements.forEach(function (element) {
+        var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+        var newSize = currentSize - 5; // You can adjust the value as needed
+        localStorage.setItem("fontSize", newSize + "px");
+        element.style.fontSize = newSize + 'px';
+        element.style.lineHeight = newSize + 'px';
+      });
+    }
 
-            // Text To Speech On Hover
-            
-                function speakText(text) {
-                    const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
-                    if (selectedVoice) {
-                        const utterance = new SpeechSynthesisUtterance(text);
-                        utterance.voice = selectedVoice;
-                        speechSynthesis.cancel(); // Stop any ongoing speech
-                        speechSynthesis.speak(utterance);
+    // Text To Speech On Hover
 
-                        utterance.onend = function () {
-                            // Speech has ended
-                            console.log('Speech ended');
-                        };
-                    }
-                }
+    function speakText(text) {
+      const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
+      if (selectedVoice) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.voice = selectedVoice;
+        speechSynthesis.cancel(); // Stop any ongoing speech
+        speechSynthesis.speak(utterance);
 
-                function getSpecificVoice() {
-                    // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
-                    const voiceName = 'Google UK English Female';
-                    const voices = speechSynthesis.getVoices();
-                    return voices.find(voice => voice.name === voiceName);
-                }
+        utterance.onend = function () {
+          // Speech has ended
+          console.log('Speech ended');
+        };
+      }
+    }
 
-              
-                  let savedSize = localStorage.getItem("fontSize");
-                  // console.log(savedSize)
-                  if (savedSize) {
-                    FontSizeElements.forEach(function (element) {
-                    element.style.fontSize = savedSize;
-                    element.style.lineHeight = savedSize;
-                     });
-                  }
-                
-                
+    function getSpecificVoice() {
+      // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
+      const voiceName = 'Google UK English Female';
+      const voices = speechSynthesis.getVoices();
+      return voices.find(voice => voice.name === voiceName);
+    }
 
-            
-    
+
+    let savedSize = localStorage.getItem("fontSize");
+    // console.log(savedSize)
+    if (savedSize) {
+      FontSizeElements.forEach(function (element) {
+        element.style.fontSize = savedSize;
+        element.style.lineHeight = savedSize;
+      });
+    }
+
+
+
+
+
   </script>
   <!-- FireBase Configuration Scripts -->
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
@@ -625,31 +680,31 @@
       measurementId: "G-49BHFJDWQD"
     };
 
-     // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
+    const auth = firebase.auth();
 
-const provider = new firebase.auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider();
 
-const loginBtn = document.getElementById("google-auth");
-const signupBtn = document.getElementById("google-auth-login")
+    const loginBtn = document.getElementById("google-auth");
+    const signupBtn = document.getElementById("google-auth-login")
 
-function userSignIn() {
-  auth.signInWithPopup(provider)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-    })
-    .catch((error) => {
-      console.error(error.message);
-    });
-}
+    function userSignIn() {
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+    }
 
-loginBtn.addEventListener('click', userSignIn);
-signupBtn.addEventListener('click', userSignIn);
-</script>
-  
+    loginBtn.addEventListener('click', userSignIn);
+    signupBtn.addEventListener('click', userSignIn);
+  </script>
+
 
   <!-- VendorJS Files -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
@@ -660,9 +715,10 @@ signupBtn.addEventListener('click', userSignIn);
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
- 
+
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>

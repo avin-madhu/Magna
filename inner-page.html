@@ -912,9 +912,9 @@
 
                 // Add item details to the card body
                 cardBody.innerHTML = `
-                        <h5 class="card-title">${item.name}</h5> 
+                        <h5 class="font-size-element" class="card-title">${item.name}</h5> 
                         <img style="object-fit: contain;height:100px;width:100px;" src="${item.image}"> 
-                        <p class="card-text"><strong>Price: ${item.price}</strong></p>
+                        <p class="font-size-element" class="card-text"><strong>Price: ${item.price}</strong></p>
                     `;
 
                 // Add a delete button
@@ -974,6 +974,116 @@
     }
 
   </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+  <script>
+
+    let count = 0;
+    const incSizeBtn = document.getElementById("incSizeBtn");
+    const decSizeBtn = document.getElementById("decSizeBtn");
+    
+    fontArray = [ 'Arial, sans-serif', 'Courier New, monospace', '"Lexend", sans-serif']
+                    var FontStyleElement = document.querySelectorAll('body');
+                    var i = 0;
+                    function changeFontStyle() {
+                    FontStyleElement.forEach(function (element) {
+                    var currentfont = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-family'));
+                    var newFont = fontArray[i]; 
+                    i = (i+1)%fontArray.length;
+                    element.style.fontFamily = newFont;
+                });
+              }
+
+
+                var FontSizeElements = document.querySelectorAll('.font-size-element');
+                function increaseFontSize() {
+                  decSizeBtn.disabled = false;
+                  if (count == 4) {
+                      incSizeBtn.disabled = true;
+                    }
+                    count++;  
+                    FontSizeElements.forEach(function (element) {
+                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+                    var newSize = currentSize + 5; // You can adjust the value as needed
+                    localStorage.setItem("fontSize", newSize + "px");
+                    element.style.fontSize = newSize + 'px';
+                    element.style.lineHeight = newSize + 'px';
+                });
+              }
+                function decreaseFontSize() {
+                  incSizeBtn.disabled = false;
+                  if (count == 1) {
+                      decSizeBtn.disabled = true;
+                    }
+                    count--;
+                FontSizeElements.forEach(function (element) {
+                    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+                    var newSize = currentSize - 5; // You can adjust the value as needed
+                    localStorage.setItem("fontSize", newSize + "px");
+                    element.style.fontSize = newSize + 'px';
+                    element.style.lineHeight = newSize + 'px';
+                });
+              }
+
+            // Text To Speech On Hover
+            
+                function speakText(text) {
+                    const selectedVoice = getSpecificVoice(); // Change this function to match the desired voice
+                    if (selectedVoice) {
+                        const utterance = new SpeechSynthesisUtterance(text);
+                        utterance.voice = selectedVoice;
+                        speechSynthesis.cancel(); // Stop any ongoing speech
+                        speechSynthesis.speak(utterance);
+
+                        utterance.onend = function () {
+                            // Speech has ended
+                            console.log('Speech ended');
+                        };
+                    }
+                }
+
+                function getSpecificVoice() {
+                    // Replace 'Microsoft David Desktop - English (United States)' with the desired voice name
+                    const voiceName = 'Google UK English Female';
+                    const voices = speechSynthesis.getVoices();
+                    return voices.find(voice => voice.name === voiceName);
+                }
+
+              
+                  savedSize = localStorage.getItem("fontSize");
+                  // console.log(savedSize)
+                  if (savedSize) {
+                    FontSizeElements.forEach(function (element) {
+                    element.style.fontSize = savedSize;
+                    element.style.lineHeight = savedSize;
+                     });
+                  }
+                 
+     if (annyang) {
+      
+      // ========================================================================================================================
+              //  HOME PAGE
+      //=========================================================================================================================
+            
+            var commands = {
+               'increase (text) size':function()
+               {
+                  increaseFontSize()
+               },
+               'decrease (text) size': function()
+               {
+                  decreaseFontSize()
+               }
+      
+            };
+      
+      
+            // Add our commands to annyang
+            annyang.addCommands(commands);
+            // Start listening. You can call this here, or attach this call to an event, button, etc.
+            annyang.start();
+          }
+                
+  </script>
 
   <script>
     function gotoCartPage() {
@@ -993,8 +1103,6 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -1002,5 +1110,4 @@
   <script src="assets/js/cartPage.js"></script>
 
 </body>
-
 </html>
