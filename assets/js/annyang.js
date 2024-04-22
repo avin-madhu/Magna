@@ -59,6 +59,10 @@ window.onload = function()
             let page1 = document.getElementById("product-page-real")
             page2.style.display = 'none'
             page1.style.display = 'block'  
+          },
+          'stop speaking': function()
+          {
+            speechSynthesis.cancel()
           }
 
       };

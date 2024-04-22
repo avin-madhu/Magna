@@ -550,7 +550,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, setDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getFirestore, collection, addDoc,doc, deleteDoc, setDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
     import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
 
     // Firebase configuration
@@ -921,7 +921,9 @@
                 deleteButton.innerText = "Remove";
                 deleteButton.addEventListener("click", () => {
                   // Call a function to delete the item from the cart
-                  deleteCartItem(item.productId); // Assuming there's an 'id' field in the item object
+                  const productIdString = item.productId.toString();
+                  deleteCartItem(productIdString); 
+                  deleteButton.closest('.col').remove();
                 });
 
                 // Append the delete button to the card body
@@ -943,6 +945,22 @@
             .catch(error => {
               console.error("Error fetching cart items:", error);
             });
+
+          // Function to delete an item from the cart
+          async function deleteCartItem(productId) {
+            try {
+              // Get a reference to the document to delete
+              const docRef = doc(db, "cart", productId);
+
+              // Delete the document
+              await deleteDoc(docRef);
+
+              console.log("Item removed from cart successfully");
+            } catch (error) {
+              console.error("Error removing item from cart:", error);
+            }
+          }
+
 
           // Function to get the count of cart items for a user
           function getCartItemCount(userId) {
@@ -1142,7 +1160,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/annyang.js"></script>
-  <script src="assets/js/cartPage.js"></script>
 
 </body>
 </html>
