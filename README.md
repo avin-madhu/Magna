@@ -31,7 +31,7 @@ This project aims to create an inclusive e-commerce website tailored specificall
 To get started with the project, follow these steps:
 
 * Clone this repository to your local machine.
-* Install dependencies by running npm install or yarn install.
+* Install dependencies by running ```npm install``` or ```yarn install.```
 * Configure Firebase by creating a Firebase project and setting up the necessary credentials.
 * Modify the codebase as needed to customize the website according to your requirements.
 * Deploy the project to your preferred hosting platform.
