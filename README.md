@@ -8,7 +8,7 @@ This project aims to create an inclusive e-commerce website tailored specificall
 
 ### Features:
 * <strong>Voice Navigation:</strong> Users can navigate through the website using voice commands, making it accessible for those with dyslexia or reading difficulties.
-* <strong>Dyslexc Friendly design: </strong The website incorporates customizable dyslexia-friendly fonts, color schemes, and layouts to enhance readability and usability.
+* <strong>Dyslexc Friendly design: </strong> The website incorporates customizable dyslexia-friendly fonts, color schemes, and layouts to enhance readability and usability.
 * <strong>Product Catalog:</strong> Browse through a wide range of products, conveniently categorized for easy exploration.
 * <strong>User Authentication:</strong> Secure user authentication system using firebase auth ensures a personalized experience for each user.
 * <strong>Shopping Cart:</strong> Add products to the cart and proceed to checkout seamlessly.
