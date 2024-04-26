@@ -4,6 +4,8 @@ Welcome to the main repository for Mini Project 2024 Team 8!
 ## Title: Web Based Ecomm Site for the Dyslexic
 This project aims to create an inclusive e-commerce website tailored specifically for individuals with dyslexia. By leveraging voice navigation and the Annyang API, we provide an intuitive browsing and shopping experience for users with dyslexia.
 
+<img align='center'>![mainpage](mainpage.png) 
+
 ### Features:
 * <strong>Voice Navigation:</strong> Users can navigate through the website using voice commands, making it accessible for those with dyslexia or reading difficulties.
 * <strong>Dyslexc Friendly design: </strong The website incorporates customizable dyslexia-friendly fonts, color schemes, and layouts to enhance readability and usability.
