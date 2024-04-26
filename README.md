@@ -20,10 +20,10 @@ This project aims to create an inclusive e-commerce website tailored specificall
 * Annyang API: Integrated for voice recognition and command processing.
 
 ### Team Members:
-* [Avin  Madhu](@avin-madhu)
-* [Gopika Chandran A J]
-* [Nadim Naisam]
-* [Amala Gopinath]
+* [Avin  Madhu](https;//github.com/avin-madhu)
+* [Gopika Chandran A J](https;//github.com/avin-madhu)
+* [Nadim Naisam](https;//github.com/avin-madhu)
+* [Amala Gopinath](https;//github.com/avin-madhu)
 
 ### Getting Started:
 To get started with the project, follow these steps:
