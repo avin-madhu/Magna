@@ -52,7 +52,7 @@
             <!-- <li><a class="nav-link scrollto" href="#team"><i class="bi bi-people-fill"></i></a></li> -->
             <!-- <li class="dropdown"><a href="#"><span>Settings</span></a></li> -->
             <!-- <li><a class="nav-link scrollto" href="#contact"><i style="font-size: 25px;" class="bi bi-envelope-fill"></i></a></li> -->
-            <li style="cursor: pointer;" onclick="gotoCartPage(),addCurrentCartId(1)" data-bs-toggle="offcanvas"
+            <li style="cursor: pointer;" onclick="gotoCartPage(),addCurrentCartId(0)" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <a>
                     <i style="font-size: 25px;"  class="bi bi-cart-fill" style="font-size: 20px; margin-left: 25px; color: #5f687b;"></i>
@@ -835,37 +835,40 @@
         if (user) {
           console.log(user.uid);
 
-          // Construct the new item to add to the cart
-          var newItem = {
-            name: productDetailsArray[window.currentlyAddedProduct].title,
-            price: productDetailsArray[window.currentlyAddedProduct].price,
-            description: productDetailsArray[window.currentlyAddedProduct].description,
-            productId: productDetailsArray[window.currentlyAddedProduct].productId,
-            image: productDetailsArray[window.currentlyAddedProduct].image1,
-            user: user.uid,
-          };
+          if (window.currentlyAddedProduct != 0) {  
+            // Construct the new item to add to the cart
+            console.log("heyy, we adding "+window.currentlyAddedProduct)
+            var newItem = {
+              name: productDetailsArray[window.currentlyAddedProduct].title,
+              price: productDetailsArray[window.currentlyAddedProduct].price,
+              description: productDetailsArray[window.currentlyAddedProduct].description,
+              productId: productDetailsArray[window.currentlyAddedProduct].productId,
+              image: productDetailsArray[window.currentlyAddedProduct].image1,
+              user: user.uid,
+            };
 
-          // Check if the product already exists in the user's cart
-          const ProductexistsQuery = query(collection(db, "cart"), where("user", "==", user.uid), where("productId", "==", productDetailsArray[window.currentlyAddedProduct].productId));
-          const ProductexistsSnapshot = await getDocs(ProductexistsQuery);
-          const productExists = !ProductexistsSnapshot.empty;
 
-          if (!productExists) {
-            // If the product does not exist in the cart, add it
-            addToCart(newItem)
-              .then((docId) => {
-                if (docId) {
-                  console.log(`Item added to cart with ID: ${docId}`);
-                } else {
-                  console.log("Failed to add item to cart.");
-                }
-              })
-              .catch(error => {
-                console.error("Error adding item to cart:", error);
-              });
-          } else {
-            console.log("Product already exists in the cart");
-          }
+            // Check if the product already exists in the user's cart
+            const ProductexistsQuery = query(collection(db, "cart"), where("user", "==", user.uid), where("productId", "==", productDetailsArray[window.currentlyAddedProduct].productId));
+            const ProductexistsSnapshot = await getDocs(ProductexistsQuery);
+            const productExists = !ProductexistsSnapshot.empty;
+
+            if (!productExists) {
+              // If the product does not exist in the cart, add it
+              addToCart(newItem)
+                .then((docId) => {
+                  if (docId) {
+                    console.log(`Item added to cart with ID: ${docId}`);
+                  } else {
+                    console.log("Failed to add item to cart.");
+                  }
+                })
+                .catch(error => {
+                  console.error("Error adding item to cart:", error);
+                });
+            } else {
+              console.log("Product already exists in the cart");
+            }}
 
           // Fetch cart items for the user
           const userId = user.uid;
@@ -948,14 +951,20 @@
 
           // Function to delete an item from the cart
           async function deleteCartItem(productId) {
+            console.log(productId);
             try {
               // Get a reference to the document to delete
-              const docRef = doc(db, "cart", productId);
+              const cartRef = collection(db, "cart");
+              const q = query(cartRef, where("productId", "==", parseInt(productId)), where("user", "==", userId));
+              const querySnap = await getDocs(q);
+              querySnap.forEach((doc)=> {
+                // Delete the document
+                console.log(doc.data());
+                deleteDoc(doc.ref);
+                console.log("Item removed from cart successfully");
+              })
 
-              // Delete the document
-              await deleteDoc(docRef);
 
-              console.log("Item removed from cart successfully");
             } catch (error) {
               console.error("Error removing item from cart:", error);
             }
