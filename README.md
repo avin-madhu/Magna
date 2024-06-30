@@ -23,9 +23,9 @@ This project aims to create an inclusive e-commerce website tailored specificall
 
 ### Team Members:
 * [Avin  Madhu](https;//github.com/avin-madhu)
-* [Gopika Chandran A J](https://github.com/GopikaChandranAJ))
-* [Nadim Naisam](https;//github.com/avin-madhu)
-* [Amala Gopinath](https;//github.com/avin-madhu)
+* [Gopika Chandran A J](https://github.com/GopikaChandranAJ)
+* [Nadim Naisam](https;//github.com/NadimNaisam)
+* [Amala Gopinath](https://github.com/Amala-Gopinath)
 
 ### Getting Started:
 To get started with the project, follow these steps:
