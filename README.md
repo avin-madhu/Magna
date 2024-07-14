@@ -27,15 +27,6 @@ This project aims to create an inclusive e-commerce website tailored specificall
 * [Nadim Naisam](https;//github.com/NadimNaisam)
 * [Amala Gopinath](https://github.com/Amala-Gopinath)
 
-### Getting Started:
-To get started with the project, follow these steps:
-
-* Clone this repository to your local machine.
-* Install dependencies by running ```npm install``` or ```yarn install.```
-* Configure Firebase by creating a Firebase project and setting up the necessary credentials.
-* Modify the codebase as needed to customize the website according to your requirements.
-* Deploy the project to your preferred hosting platform.
-  
 Feel free to contribute to the project by adding new features, fixing bugs, or improving documentation. We welcome any suggestions or feedback to make this project even more accessible and user-friendly.
 
 Happy coding! 🚀
