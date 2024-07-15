@@ -1,4 +1,4 @@
-# MiniProject
+# Magna
 Welcome to the main repository for Mini Project 2024 Team 8!
 
 ## Title: Web Based Ecomm Site for the Dyslexic
