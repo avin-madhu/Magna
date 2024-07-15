@@ -1,6 +1,8 @@
 # Magna
 Welcome to the main repository for Magna, a Miniproject developed as a part of KTU Curriculum 2024 !
 
+Visit the site: [Link](https://project-navigo.vercel.app/)
+
 ## Title: Web Based Ecomm Site for the Dyslexic
 This project aims to create an inclusive e-commerce website tailored specifically for individuals with dyslexia. By leveraging voice navigation and the Annyang API, we provide an intuitive browsing and shopping experience for users with dyslexia.
 
