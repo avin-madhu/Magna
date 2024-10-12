@@ -63,6 +63,10 @@ window.onload = function()
           'stop speaking': function()
           {
             speechSynthesis.cancel()
+          },
+          'stop listening': function()
+          {
+            annyang.abort();
           }
 
       };

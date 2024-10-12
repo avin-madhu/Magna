@@ -31,7 +31,7 @@ This project aims to create an inclusive e-commerce website tailored specificall
 
 Feel free to contribute to the project by adding new features, fixing bugs, or improving documentation. We welcome any suggestions or feedback to make this project even more accessible and user-friendly.
 
-Happy coding! 🚀
+Thank for your time and contribution !! 🚀
 
 
 

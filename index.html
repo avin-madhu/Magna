@@ -1,9 +1,7 @@
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
 
   <title>Magna</title>
 
@@ -57,15 +55,15 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero"><i style="font-size: 25px;"
+          <li><a title="Hero" class="nav-link scrollto active" href="#hero"><i style="font-size: 25px;"
                 class="bi bi-house-door-fill"></i></a></li>
-          <li><a class="nav-link scrollto" href="#about"><i style="font-size: 25px;"
+          <li><a name="About" title="About" class="nav-link scrollto" href="#about"><i style="font-size: 25px;"
                 class="bi bi-info-circle-fill"></i></a></li>
-          <li><a class="nav-link scrollto" href="#services"><i style="font-size: 25px;" class="bi bi-gear-fill"></i>
+          <li><a title="Services" class="nav-link scrollto" href="#services"><i style="font-size: 25px;" class="bi bi-gear-fill"></i>
             </a></li>
-          <li><a class="nav-link scrollto" href="#team"><i style="font-size: 25px;" class="bi bi-people-fill"></i> </a>
+          <li><a title="Team" class="nav-link scrollto" href="#team"><i style="font-size: 25px;" class="bi bi-people-fill"></i> </a>
           </li>
-          <li><a class="nav-link scrollto" href="#contact"><i style="font-size: 25px;" class="bi bi-envelope-fill"></i>
+          <li><a title="Contact" class="nav-link scrollto" href="#contact"><i style="font-size: 25px;" class="bi bi-envelope-fill"></i>
             </a></li>
           <li id="loginButton" class="logged-out" style="display: none;" data-bs-toggle="modal"
             data-bs-target="#login-modal"><a class="nav-link scrollto" href="#login"><i style="font-size: 25px;"
@@ -164,9 +162,7 @@
 
       </div>
     </section><!-- End Featured Services Section -->
-
-    <!-- -->
-
+    
     <!-- ======= About Section ======= -->
 
 
@@ -211,29 +207,6 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
-
-    <!-- <div class="container">
-      <div class="row counters">
-  
-        <div class="col-lg-3 col-6 text-center">
-          <span style="" data-purecounter-start="0" data-purecounter-end="532" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Clients</p>
-        </div>
-  
-        <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Products</p>
-        </div>
-  
-        <div class="col-lg-3 col-6 text-center">
-          <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Hours Of Support</p>
-        </div>
-      </div>
-    </div>
-  </div> -->
-    </section><!-- End Counts Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
@@ -309,8 +282,6 @@
 
       </div>
     </section><!-- End Services Section -->
-
-
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
@@ -474,14 +445,6 @@
           </div>
         </div>
 
-        <!-- <div class="row footer-newsletter justify-content-center">
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div> -->
-
         <div style="padding: 20px;" class="social-links">
           <a onpointermove="speakText('visit our twitter account')" href="#" class="twitter"><i
               class="bx bxl-twitter"></i></a>
@@ -508,10 +471,6 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
-
-
-
-
 
   <!-- Login Modal -->
   <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
@@ -590,12 +549,22 @@
     fontArray = ['Arial, sans-serif', 'Courier New, monospace', '"Lexend", sans-serif']
     var FontStyleElement = document.querySelectorAll('body');
     var i = 0;
+    var currentfont = "";
     function changeFontStyle() {
       FontStyleElement.forEach(function (element) {
-        var currentfont = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-family'));
+        if (currentfont)
+      {
+        currentfont = window.localStorage.getItem("newFontFam");
+      }
+      else
+      {
+        currentfont = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-family'));
+        window.localStorage.setItem("newFontFam", currentfont);
+      }
         var newFont = fontArray[i];
         i = (i + 1) % fontArray.length;
-        element.style.fontFamily = newFont;
+        window.localStorage.setItem("newFontFam", newFont)
+        element.style.fontFamily = window.localStorage.getItem("newFontFam");
       });
     }
 

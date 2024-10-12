@@ -195,9 +195,6 @@
     selector: '.portfolio-lightbox'
   });
 
-  /**
-   * Portfolio details slider
-   */
   new Swiper('.portfolio-details-slider', {
     speed: 400,
     loop: true,
@@ -212,9 +209,6 @@
     }
   });
 
-  /**
-   * Testimonials slider
-   */
   new Swiper('.testimonials-slider', {
     speed: 600,
     loop: true,
@@ -241,13 +235,6 @@
     }
   });
 
-  /**
-   * Initiate Pure Counter 
-   */
   new PureCounter();
-
-
-  
-
 
 })()
