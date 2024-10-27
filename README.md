@@ -7,6 +7,7 @@ Visit the site: [Link](https://project-navigo.vercel.app/)
 This project aims to create an inclusive e-commerce website tailored specifically for individuals with dyslexia. By leveraging voice navigation and the Annyang API, we provide an intuitive browsing and shopping experience for users with dyslexia.
 
 <img align='center'>![mainpage](mainpage.png) 
+<video src="">
 
 ### Features:
 * <strong>Voice Navigation:</strong> Users can navigate through the website using voice commands, making it accessible for those with dyslexia or reading difficulties.
